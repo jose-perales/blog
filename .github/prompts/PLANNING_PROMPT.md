@@ -3,11 +3,13 @@
 You are an expert full-stack frontend engineer. Build a local-first “career blog” web app optimized for learning React, TypeScript, and testing. Use Next.js App Router with a Postgres database and MDX content in the repository. Implement only the UX described below—no extra pages/features.
 
 ## Goal
+
 - A production-quality developer blog with MDX posts and impressive syntax highlighting.
 - Dynamic features: authentication, comments, likes, view counts, newsletter signup.
 - Strong quality bar: formatting, linting, unit tests, and end-to-end tests.
 
 ## Tech decisions (must use)
+
 - Next.js (App Router) + React + TypeScript (strict).
 - Tailwind CSS for styling.
 - Postgres (Docker for local dev) + Prisma for schema/migrations.
@@ -19,26 +21,32 @@ You are an expert full-stack frontend engineer. Build a local-first “career bl
 ## Core UX (must implement)
 
 ### Pages
-1) **Home**
+
+1. **Home**
+
 - Shows list of latest posts (title, date, short description, tags).
 - Basic navigation to About and Newsletter.
 
-2) **Post page**
+2. **Post page**
+
 - Renders MDX content with syntax highlighting.
 - Shows view count and like count.
 - Like button (requires login).
 - Comments section (requires login to post). Show existing comments sorted by newest.
 
-3) **Auth**
+3. **Auth**
+
 - Sign up: email + password + display name.
 - Sign in: email + password.
 - Sign out.
 
-4) **Newsletter**
+4. **Newsletter**
+
 - A simple newsletter signup form (email).
 - On submit: store subscription in DB and show success state.
 
 ## Dynamic features (must implement)
+
 - **View counts**:
   - Increment on post view (server-side endpoint).
   - Prevent obviously excessive increments from the same user/session (basic dedupe using cookie/session + short TTL is fine).
@@ -55,6 +63,7 @@ You are an expert full-stack frontend engineer. Build a local-first “career bl
   - Provider integration is optional; implement a clean “stub” where a future provider can be plugged in via env vars.
 
 ## Content system requirements
+
 - Posts live in-repo under a content directory as MDX files.
 - Frontmatter fields: `title`, `date`, `description`, `tags`, `slug`.
 - Build a content loader that:
@@ -66,6 +75,7 @@ You are an expert full-stack frontend engineer. Build a local-first “career bl
   - Code fences with language; Shiki highlighting; optional filename/title; line highlights.
 
 ## Data model (Prisma) — minimum tables
+
 - **User**: id, email (unique), name, createdAt
 - **Password**: userId (unique), passwordHash
 - **Session / Account** tables as required by Auth.js adapter
@@ -77,6 +87,7 @@ You are an expert full-stack frontend engineer. Build a local-first “career bl
 - **NewsletterSubscription**: id, email (unique), createdAt, status (optional)
 
 ## Project structure & scripts
+
 - Provide a working local dev setup with:
   - `dev` starts Next.js and any required services.
   - `test` runs unit/component tests.
@@ -86,6 +97,7 @@ You are an expert full-stack frontend engineer. Build a local-first “career bl
 - Include a simple Docker compose for Postgres local dev.
 
 ## Testing requirements
+
 - Unit/component tests (Vitest/RTL):
   - Content loader logic (list posts, parse frontmatter).
   - At least one rendered component test (e.g., post list or comment form validation).
@@ -98,21 +110,24 @@ You are an expert full-stack frontend engineer. Build a local-first “career bl
 - Tests must run locally without external services.
 
 ## Non-goals (do NOT implement)
+
 - No admin dashboard, no moderation UI, no search, no tag pages, no pagination unless required.
 - No third-party comment system.
 - No analytics provider integration.
 - No deployment configuration yet.
 
 ## Milestones (implement in this order)
-1) Scaffold app, Tailwind, lint/format, TypeScript strict, basic routes.
-2) MDX content pipeline + Home + Post page rendering + Shiki highlighting.
-3) Postgres + Prisma + migrations + basic DB connectivity.
-4) Auth (sign up/sign in/sign out) with session handling.
-5) Views/likes/comments endpoints + UI wiring.
-6) Newsletter signup endpoint + UI.
-7) Tests: unit/component then e2e; ensure all scripts pass.
+
+1. Scaffold app, Tailwind, lint/format, TypeScript strict, basic routes.
+2. MDX content pipeline + Home + Post page rendering + Shiki highlighting.
+3. Postgres + Prisma + migrations + basic DB connectivity.
+4. Auth (sign up/sign in/sign out) with session handling.
+5. Views/likes/comments endpoints + UI wiring.
+6. Newsletter signup endpoint + UI.
+7. Tests: unit/component then e2e; ensure all scripts pass.
 
 ## Acceptance criteria
+
 - `npm run dev` works locally with Postgres.
 - Home lists posts from MDX; Post page renders MDX with high-quality syntax highlighting.
 - Auth works; likes and comments require login; view counts update.

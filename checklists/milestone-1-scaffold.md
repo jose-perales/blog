@@ -3,6 +3,7 @@
 Use this as a working checklist to implement Milestone 1 only.
 
 ## Scope (Milestone 1)
+
 - Next.js App Router project scaffolded and runs locally
 - Tailwind CSS working and used for basic layout
 - TypeScript strict mode enabled
@@ -10,6 +11,7 @@ Use this as a working checklist to implement Milestone 1 only.
 - Basic routes exist (UI skeleton only; no MDX/DB/auth logic yet)
 
 ## Out of scope (don’t implement yet)
+
 - MDX content pipeline, Shiki/rehype-pretty-code, post rendering
 - Postgres/Prisma schema, migrations, Docker compose
 - Auth.js / NextAuth, sign-up/sign-in logic, sessions
@@ -19,83 +21,92 @@ Use this as a working checklist to implement Milestone 1 only.
 ---
 
 ## 0) Workspace conventions
-- [ ] Decide package manager: `npm` (recommended for this repo unless you choose otherwise)
-- [ ] Ensure Node is available: `node -v` and `npm -v`
+
+- [x] Decide package manager: `npm` (recommended for this repo unless you choose otherwise)
+- [x] Ensure Node is available: `node -v` and `npm -v`
 
 **Done when**: You can install deps without errors.
 
 ---
 
 ## 1) Create the Next.js app (App Router + TypeScript)
-- [ ] Scaffold with App Router + TS (example):
+
+- [x] Scaffold with App Router + TS (example):
   - `npm create next-app@latest .` (in an empty folder) or scaffold into a new folder and move files
   - Choose: **App Router: yes**, **TypeScript: yes**, **ESLint: yes**
-- [ ] Confirm `app/` directory exists and the homepage renders
+- [x] Confirm `app/` directory exists and the homepage renders
 
 **Done when**: `npm run dev` starts and you can load `/`.
 
 ---
 
 ## 2) Enable Tailwind CSS
-- [ ] Add Tailwind per Next.js + Tailwind docs (or select Tailwind during scaffold if prompted)
-- [ ] Verify Tailwind is wired:
+
+- [x] Add Tailwind per Next.js + Tailwind docs (or select Tailwind during scaffold if prompted)
+- [x] Verify Tailwind is wired:
   - `tailwind.config.*` exists
-  - `app/globals.css` includes Tailwind directives (`@tailwind base;`, etc.)
-- [ ] Replace default landing content with a minimal layout using Tailwind utility classes
+  - `app/globals.css` includes Tailwind styles (Tailwind v4 uses `@import "tailwindcss";`)
+- [x] Replace default landing content with a minimal layout using Tailwind utility classes
 
 **Done when**: Changing a Tailwind class visibly changes UI.
 
 ---
 
 ## 3) TypeScript strict mode check
-- [ ] Ensure `tsconfig.json` has `"strict": true`
-- [ ] Keep the project compiling cleanly with `tsc` checks (Next uses TS during build)
+
+- [x] Ensure `tsconfig.json` has `"strict": true`
+- [x] Keep the project compiling cleanly with `tsc` checks (Next uses TS during build)
 
 **Done when**: `npm run build` succeeds with no TS errors.
 
 ---
 
 ## 4) Prettier formatting setup
-- [ ] Install Prettier tooling:
+
+- [x] Install Prettier tooling:
   - `prettier`
   - `prettier-plugin-tailwindcss`
   - `eslint-config-prettier`
 - [ ] Add config files:
-  - [ ] `.prettierrc` (or `prettier.config.*`)
-  - [ ] `.prettierignore`
+  - [x] `.prettierrc` (or `prettier.config.*`)
+  - [x] `.prettierignore`
 - [ ] Ensure ESLint and Prettier don’t fight (extend `eslint-config-prettier`)
-- [ ] Add scripts in `package.json`:
-  - [ ] `format`: `prettier --write .`
-  - [ ] `format:check`: `prettier --check .`
+- [x] Add scripts in `package.json`:
+  - [x] `format`: `prettier --write .`
+  - [x] `format:check`: `prettier --check .`
 
 **Done when**: `npm run format` reformats files and `npm run format:check` passes.
 
 ---
 
 ## 5) ESLint setup
-- [ ] Keep Next.js ESLint enabled
-- [ ] Make sure lint runs from scripts:
-  - [ ] `lint`: `next lint`
+
+- [x] Keep Next.js ESLint enabled
+- [x] Make sure lint runs from scripts:
+  - [x] `lint`: `eslint .` (Next 16 CLI no longer exposes `next lint`)
 
 **Done when**: `npm run lint` passes on a clean checkout.
 
 ---
 
 ## 6) Basic routes (skeleton only)
+
 Create page shells that match the future UX, but don’t implement data yet.
 
 ### Routes to add
-- [ ] Home: `/` (list placeholder)
-- [ ] About: `/about` (simple content)
-- [ ] Newsletter: `/newsletter` (email input + submit button; no DB yet)
+
+- [x] Home: `/` (list placeholder)
+- [x] About: `/about` (simple content)
+- [x] Newsletter: `/newsletter` (email input + submit button; no DB yet)
 - [ ] Auth:
-  - [ ] Sign in: `/auth/sign-in` (email + password; no real auth yet)
-  - [ ] Sign up: `/auth/sign-up` (email + password + display name; no real auth yet)
+  - [x] Sign in: `/auth/sign-in` (email + password; no real auth yet)
+  - [x] Sign up: `/auth/sign-up` (email + password + display name; no real auth yet)
 - [ ] Post page route placeholder:
-  - [ ] `/posts/[slug]` (render slug and placeholder for future MDX + counts)
+  - [x] `/posts/[slug]` (render slug and placeholder for future MDX + counts)
 
 ### Shared layout
-- [ ] Add a simple top nav in `app/layout.tsx` linking to:
+
+- [x] Add a simple top nav in `app/layout.tsx` linking to:
   - Home
   - About
   - Newsletter
@@ -106,31 +117,36 @@ Create page shells that match the future UX, but don’t implement data yet.
 ---
 
 ## 7) Minimal UI constraints
-- [ ] Do not add extra pages/features (no search, tag pages, pagination, admin, etc.)
-- [ ] Keep styling simple and consistent using Tailwind only
+
+- [x] Do not add extra pages/features (no search, tag pages, pagination, admin, etc.)
+- [x] Keep styling simple and consistent using Tailwind only
 
 **Done when**: Pages exist and look coherent, but remain minimal.
 
 ---
 
 ## 8) Verification checklist (Milestone 1 exit criteria)
+
 Run these locally:
-- [ ] `npm run dev` (starts successfully)
-- [ ] `npm run lint` (passes)
-- [ ] `npm run format:check` (passes)
-- [ ] `npm run build` (passes)
+
+- [x] `npm run dev` (starts successfully)
+- [x] `npm run lint` (passes)
+- [x] `npm run format:check` (passes)
+- [x] `npm run build` (passes)
 
 Manual checks:
-- [ ] `/` renders
-- [ ] `/about` renders
-- [ ] `/newsletter` renders
-- [ ] `/auth/sign-in` renders
+
+- [x] `/` renders
+- [x] `/about` renders
+- [x] `/newsletter` renders
+- [x] `/auth/sign-in` renders
 - [ ] `/auth/sign-up` renders
 - [ ] `/posts/test-slug` renders
 
 ---
 
 ## Notes for Milestone 2 handoff
+
 - Keep route structure stable: `/posts/[slug]`, `/newsletter`, `/auth/*`
 - Avoid implementing MDX now; leave placeholders where MDX content will render
 - Keep components small and colocated; don’t over-architect
