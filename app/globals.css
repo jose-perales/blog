@@ -7,3 +7,64 @@
 body {
   margin: 0;
 }
+
+.mdx {
+  @apply space-y-4;
+}
+
+.mdx h1 {
+  @apply text-3xl font-semibold tracking-tight;
+}
+
+.mdx h2 {
+  @apply mt-8 text-2xl font-semibold tracking-tight;
+}
+
+.mdx h3 {
+  @apply mt-6 text-xl font-semibold tracking-tight;
+}
+
+.mdx p {
+  @apply leading-7 text-slate-800;
+}
+
+.mdx a {
+  @apply underline underline-offset-4;
+}
+
+.mdx ul {
+  @apply list-disc space-y-1 pl-6;
+}
+
+.mdx ol {
+  @apply list-decimal space-y-1 pl-6;
+}
+
+.mdx blockquote {
+  @apply border-l-2 border-slate-300 pl-4 text-slate-700;
+}
+
+/* rehype-pretty-code */
+.mdx figure[data-rehype-pretty-code-figure] {
+  @apply my-6 overflow-hidden rounded-lg border border-slate-200;
+}
+
+.mdx figcaption[data-rehype-pretty-code-title] {
+  @apply border-b border-slate-200 bg-slate-50 px-4 py-2 font-mono text-xs text-slate-700;
+}
+
+.mdx pre {
+  @apply overflow-x-auto bg-slate-950 px-4 py-3 text-sm leading-6;
+}
+
+.mdx code {
+  @apply font-mono;
+}
+
+.mdx .line--highlighted {
+  @apply block bg-white/10;
+}
+
+.mdx .word--highlighted {
+  @apply rounded bg-white/15 px-1;
+}

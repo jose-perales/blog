@@ -1,0 +1,39 @@
+---
+title: "Hello World"
+date: "2025-12-01"
+description: "A first MDX post to verify rendering and syntax highlighting."
+tags:
+  - "mdx"
+  - "nextjs"
+slug: "hello-world"
+---
+
+# Hello World
+
+This post exists to validate the MDX pipeline in **Milestone 2**.
+
+- Lists
+- Links
+- Blockquotes
+
+Here's a link to [Next.js](https://nextjs.org).
+
+> Blockquotes should render nicely.
+
+## Code fences
+
+```ts title="lib/sum.ts"
+export function sum(a: number, b: number) {
+  return a + b;
+}
+```
+
+### Line highlighting
+
+```ts {2,4} title="lib/greeter.ts"
+export function greet(name: string) {
+  const trimmed = name.trim();
+
+  return `Hello, ${trimmed}!`;
+}
+```
