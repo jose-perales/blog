@@ -1,0 +1,33 @@
+---
+title: "Shiki + rehype-pretty-code"
+date: "2025-12-15"
+description: "A post to validate Shiki highlighting, titles, and inline formatting."
+tags:
+  - "shiki"
+  - "rehype"
+slug: "shiki-pretty-code"
+---
+
+# Shiki + rehype-pretty-code
+
+MDX supports rich markdown and JSX, but for this milestone we're focusing on:
+
+1. Rendering markdown elements
+2. Syntax highlighting with Shiki
+3. Optional code titles + line highlights
+
+## JavaScript example
+
+```js title="scripts/example.js"
+const items = [1, 2, 3];
+
+for (const n of items) {
+  console.log(n * 2);
+}
+```
+
+## Bash example
+
+```bash
+npm run dev
+```
