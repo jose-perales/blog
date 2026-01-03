@@ -15,10 +15,13 @@
     "format:check": "prettier --check ."
   },
   "dependencies": {
-    "@prisma/client": "^6.0.0",
+    "@prisma/adapter-pg": "^7.2.0",
+    "@prisma/client": "^7.2.0",
+    "dotenv": "^17.2.3",
     "gray-matter": "^4.0.3",
     "next": "latest",
     "next-mdx-remote": "^5.0.0",
+    "pg": "^8.16.3",
     "react": "latest",
     "react-dom": "latest",
     "rehype-pretty-code": "^0.14.1",
@@ -28,14 +31,15 @@
   "devDependencies": {
     "@tailwindcss/postcss": "latest",
     "@types/node": "latest",
+    "@types/pg": "^8.16.0",
     "@types/react": "latest",
     "@types/react-dom": "latest",
     "eslint": "latest",
     "eslint-config-next": "latest",
     "eslint-config-prettier": "latest",
-    "prisma": "^6.0.0",
     "prettier": "latest",
     "prettier-plugin-tailwindcss": "latest",
+    "prisma": "^7.2.0",
     "tailwindcss": "latest",
     "typescript": "latest"
   }
