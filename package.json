@@ -8,10 +8,14 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
+    "db:migrate": "prisma migrate dev",
+    "db:studio": "prisma studio",
+    "postinstall": "prisma generate",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
   },
   "dependencies": {
+    "@prisma/client": "^6.0.0",
     "gray-matter": "^4.0.3",
     "next": "latest",
     "next-mdx-remote": "^5.0.0",
@@ -29,6 +33,7 @@
     "eslint": "latest",
     "eslint-config-next": "latest",
     "eslint-config-prettier": "latest",
+    "prisma": "^6.0.0",
     "prettier": "latest",
     "prettier-plugin-tailwindcss": "latest",
     "tailwindcss": "latest",
