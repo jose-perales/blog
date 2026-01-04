@@ -51,6 +51,13 @@ model Comment {
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
+model NewsletterSubscription {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  createdAt DateTime @default(now())
+  status    String?
+}
+
 model User {
   id            String    @id @default(cuid())
   email         String    @unique
