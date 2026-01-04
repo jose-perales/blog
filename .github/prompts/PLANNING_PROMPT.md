@@ -118,6 +118,8 @@ You are an expert full-stack frontend engineer. Build a local-first “career bl
 
 ## Milestones (implement in this order)
 
+### Phase 1: Core Functionality
+
 1. Scaffold app, Tailwind, lint/format, TypeScript strict, basic routes.
 2. MDX content pipeline + Home + Post page rendering + Shiki highlighting.
 3. Postgres + Prisma + migrations + basic DB connectivity.
@@ -126,10 +128,34 @@ You are an expert full-stack frontend engineer. Build a local-first “career bl
 6. Newsletter signup endpoint + UI.
 7. Playwright e2e testing implementation; ensure all scripts pass.
 
+### Phase 2: Design System (see `.github/prompts/DESIGN_IMPLEMENTATION_PROMPT.md`)
+
+8. **Design M1**: Foundation — Tailwind tokens, CSS variables, dark base.
+9. **Design M2**: Typography & Layout — type scale, content widths, vertical rhythm.
+10. **Design M3**: Components — buttons, inputs, nav, cards.
+11. **Design M4**: Code & Syntax — Shiki theme, code block styling.
+12. **Design M5**: Polish & Accessibility — focus states, reduced motion, final QA.
+
+### Phase 3: Deployment (future)
+
+13. Production deployment configuration.
+
 ## Acceptance criteria
+
+### Functional
 
 - `npm run dev` works locally with Postgres.
 - Home lists posts from MDX; Post page renders MDX with high-quality syntax highlighting.
 - Auth works; likes and comments require login; view counts update.
 - Newsletter signup persists and prevents duplicates.
 - `npm run lint`, `npm run test`, and `npm run test:e2e` all pass locally.
+
+### Design (Phase 2)
+
+- Dark theme by default (#0a0a0a background).
+- Typography follows 1.25 scale with 18px base.
+- All colors match design system palette exactly.
+- No decorative elements without function.
+- WCAG AA contrast ratios met.
+- `prefers-reduced-motion` respected.
+- Design feels: Quiet, Clear, Inevitable.
