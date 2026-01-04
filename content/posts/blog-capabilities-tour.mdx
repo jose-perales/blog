@@ -1,0 +1,103 @@
+---
+title: "Blog Capabilities Tour"
+date: "2026-01-04"
+description: "A kitchen-sink post that demonstrates MDX rendering, code blocks, titles, and line highlighting."
+tags:
+  - "mdx"
+  - "code"
+  - "shiki"
+slug: "blog-capabilities-tour"
+---
+
+# Blog Capabilities Tour
+
+This post exists to showcase what this blog can do today:
+
+- Rich Markdown (headings, lists, links, tables)
+- MDX prose with readable typography
+- Code blocks with Shiki highlighting (including titles)
+- Line highlighting for callouts
+- Inline code styling like `npm test` and `prisma migrate dev`
+
+## Links, lists, and blockquotes
+
+A link should feel calm and readable: [Next.js](https://nextjs.org).
+
+> Blockquotes should read like marginalia.
+> They should stay quiet and legible.
+
+### A small GFM table
+
+| Capability              | Status |
+| ----------------------- | ------ |
+| MDX posts in-repo       | Yes    |
+| Syntax highlighting     | Yes    |
+| Auth / likes / comments | Yes    |
+
+## Inline code in headings: `rehype-pretty-code`
+
+Inline code should be distinct without shouting.
+
+- In lists: run `npm run dev` locally
+- In lists: check `npm run build` before pushing
+
+## TypeScript example (with title)
+
+```ts title="lib/capabilities.ts"
+export type Capability = {
+  name: string;
+  implemented: boolean;
+};
+
+export const capabilities: Capability[] = [
+  { name: "MDX rendering", implemented: true },
+  { name: "Syntax highlighting", implemented: true },
+  { name: "Auth + engagement", implemented: true },
+];
+```
+
+## Line highlighting
+
+```ts {3,7} title="lib/highlight-demo.ts"
+export function formatSummary(title: string, items: string[]) {
+  const safeTitle = title.trim();
+
+  // A very long line to verify horizontal scroll works as intended on overflow and doesn’t wrap unexpectedly:
+  const joined = items
+    .map((i) => i.trim())
+    .filter(Boolean)
+    .join(" · ");
+
+  return `${safeTitle}: ${joined}`;
+}
+```
+
+## CSS example (tokens and spacing)
+
+```css title="app/globals.css"
+.mdx figure[data-rehype-pretty-code-figure] {
+  /* This block is intentionally here as a visual target for code styling */
+  border-radius: 0.5rem;
+}
+```
+
+## SQL example
+
+```sql title="prisma/query.sql"
+SELECT
+  p.slug,
+  p."viewCount",
+  COUNT(pl.id) AS like_count
+FROM "Post" p
+LEFT JOIN "PostLike" pl ON pl."postId" = p.id
+GROUP BY p.slug, p."viewCount"
+ORDER BY p."viewCount" DESC;
+```
+
+## Shell example
+
+```bash title="Terminal"
+npm run lint
+npm test
+npm run dev
+```
