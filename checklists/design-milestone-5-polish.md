@@ -305,10 +305,10 @@ test.describe("visual regression", () => {
 
 ## 7) Run all tests
 
-- [ ] `npm test` — unit/component tests pass
-- [ ] `npm run lint` — no errors
-- [ ] `npm run build` — builds successfully
-- [ ] `npm run test:e2e` — E2E tests pass
+- [x] `npm test` — unit/component tests pass
+- [x] `npm run lint` — no errors
+- [x] `npm run build` — builds successfully
+- [x] `npm run test:e2e` — E2E tests pass
 
 **Done when**: All tests pass.
 
