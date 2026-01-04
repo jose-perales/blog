@@ -30,7 +30,7 @@ describe("Input styles in globals.css", () => {
     });
 
     it("includes focus ring styling", () => {
-      expect(globalsCss).toMatch(/\.input\s*\{[^}]*focus:/);
+      expect(globalsCss).toMatch(/\.input\s*\{[^}]*focus-visible:/);
     });
 
     it("has placeholder styling", () => {

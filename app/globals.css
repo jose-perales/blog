@@ -80,6 +80,32 @@ body {
   color: var(--fg-primary);
 }
 
+/* Focus visible for keyboard users */
+:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 2px;
+}
+
+/* Remove default focus for mouse users */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Link focus state: underline + color change */
+a:focus-visible {
+  color: var(--accent-hover);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+/* Standard transition for interactive elements */
+.transition-default {
+  transition-property: color, background-color, border-color, opacity;
+  transition-duration: 150ms;
+  transition-timing-function: ease;
+}
+
 .mdx {
   @apply mx-auto max-w-2xl space-y-6;
 }
@@ -178,7 +204,10 @@ code:not([data-language]):not(.mdx code) {
 
 /* Buttons */
 .btn {
-  @apply focus:ring-accent-subtle focus:ring-offset-background inline-flex items-center justify-center rounded-md px-6 py-3 text-sm font-medium transition-colors duration-150 focus:ring-2 focus:ring-offset-2 focus:outline-none;
+  @apply focus-visible:ring-accent-subtle focus-visible:ring-offset-background inline-flex items-center justify-center rounded-md px-6 py-3 text-sm font-medium focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none;
+  transition-property: color, background-color, border-color, opacity;
+  transition-duration: 150ms;
+  transition-timing-function: ease;
 }
 
 .btn-ghost {
@@ -195,11 +224,14 @@ code:not([data-language]):not(.mdx code) {
 
 /* Form inputs */
 .input {
-  @apply border-accent-subtle bg-background-elevated text-foreground placeholder:text-foreground-muted focus:border-accent focus:ring-accent w-full rounded-md border px-4 py-3 transition-colors duration-150 focus:ring-1 focus:outline-none;
+  @apply border-accent-subtle bg-background-elevated text-foreground placeholder:text-foreground-muted focus-visible:border-accent focus-visible:ring-accent w-full rounded-md border px-4 py-3 focus-visible:ring-1 focus-visible:outline-none;
+  transition-property: color, background-color, border-color, opacity;
+  transition-duration: 150ms;
+  transition-timing-function: ease;
 }
 
 .input-error {
-  @apply border-error focus:border-error focus:ring-error;
+  @apply border-error focus-visible:border-error focus-visible:ring-error;
 }
 
 .label {
@@ -216,5 +248,19 @@ code:not([data-language]):not(.mdx code) {
 }
 
 .card-interactive {
-  @apply bg-background-elevated hover:bg-background-subtle cursor-pointer rounded-lg p-6 transition-colors duration-150;
+  @apply bg-background-elevated hover:bg-background-subtle cursor-pointer rounded-lg p-6;
+  transition-property: color, background-color, border-color, opacity;
+  transition-duration: 150ms;
+  transition-timing-function: ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
