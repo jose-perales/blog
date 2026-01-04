@@ -20,11 +20,15 @@
         "dbaeumer.vscode-eslint",
         "esbenp.prettier-vscode",
         "Prisma.prisma",
-        "bradlc.vscode-tailwindcss"
+        "bradlc.vscode-tailwindcss",
+        "unifiedjs.vscode-mdx"
       ],
       "settings": {
         "editor.defaultFormatter": "esbenp.prettier-vscode",
-        "editor.formatOnSave": true
+        "editor.formatOnSave": true,
+        "css.lint.unknownAtRules": "ignore",
+        "scss.lint.unknownAtRules": "ignore",
+        "less.lint.unknownAtRules": "ignore"
       }
     }
   },
