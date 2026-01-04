@@ -24,5 +24,7 @@
 
 ## Testing
 
-- Add tests only when the plan/milestone calls for them.
+- Enforce **Test Driven Development (TDD)**:
+  - Prefer writing a failing test first, then implement, then refactor.
+  - If TDD is genuinely not feasible for a change (e.g., framework limitation), briefly state why and add the smallest reasonable coverage.
 - When you change code, run the narrowest relevant checks (lint/build/test) when feasible.

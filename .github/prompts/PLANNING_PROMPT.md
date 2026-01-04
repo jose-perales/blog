@@ -124,7 +124,7 @@ You are an expert full-stack frontend engineer. Build a local-first “career bl
 4. Auth (sign up/sign in/sign out) with session handling.
 5. Views/likes/comments endpoints + UI wiring.
 6. Newsletter signup endpoint + UI.
-7. Tests: unit/component then e2e; ensure all scripts pass.
+7. Playwright e2e testing implementation; ensure all scripts pass.
 
 ## Acceptance criteria
 

@@ -6,6 +6,10 @@ import remarkGfm from "remark-gfm";
 import rehypePrettyCode, { type Options as RehypePrettyCodeOptions } from "rehype-pretty-code";
 
 import { getPostBySlug } from "@/lib/content";
+import { prisma } from "@/lib/db";
+import { auth } from "@/auth";
+
+import { PostEngagement } from "./post-engagement";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -45,6 +49,35 @@ export default async function PostPage({ params }: PageProps) {
 
   if (!post) notFound();
 
+  const session = await auth();
+  const userId = session?.user?.id;
+
+  const postRow = await prisma.post.findUnique({ where: { slug } });
+  const viewCount = postRow?.viewCount ?? 0;
+  const likeCount = postRow ? await prisma.postLike.count({ where: { postId: postRow.id } }) : 0;
+  const likedByMe =
+    userId && postRow
+      ? Boolean(
+          await prisma.postLike.findUnique({
+            where: {
+              postId_userId: {
+                postId: postRow.id,
+                userId,
+              },
+            },
+          }),
+        )
+      : false;
+  const comments = postRow
+    ? await prisma.comment.findMany({
+        where: { postId: postRow.id },
+        orderBy: { createdAt: "desc" },
+        include: {
+          user: { select: { id: true, name: true } },
+        },
+      })
+    : [];
+
   return (
     <article className="space-y-8">
       <header className="space-y-2">
@@ -65,11 +98,19 @@ export default async function PostPage({ params }: PageProps) {
         />
       </div>
 
-      <section className="rounded-lg border border-slate-200 p-4">
-        <div className="text-sm text-slate-600">
-          View counts, likes, and comments will be implemented in later milestones.
-        </div>
-      </section>
+      <PostEngagement
+        slug={slug}
+        viewCount={viewCount}
+        likeCount={likeCount}
+        likedByMe={likedByMe}
+        comments={comments.map((comment) => ({
+          id: comment.id,
+          body: comment.body,
+          createdAt: comment.createdAt.toISOString(),
+          author: comment.user,
+        }))}
+        isAuthenticated={Boolean(userId)}
+      />
     </article>
   );
 }
