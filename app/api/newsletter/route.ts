@@ -45,7 +45,10 @@ export async function POST(request: Request) {
     }
 
     return NextResponse.json({ ok: true }, { status: 201 });
-  } catch {
-    return NextResponse.json({ ok: false, error: "server" }, { status: 500 });
+  } catch (err) {
+    console.error(err);
+    const message =
+      process.env.NODE_ENV === "development" && err instanceof Error ? err.message : "server";
+    return NextResponse.json({ ok: false, error: message }, { status: 500 });
   }
 }
