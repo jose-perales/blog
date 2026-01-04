@@ -206,7 +206,9 @@ export function PostEngagement(props: PostEngagementProps) {
               <li key={comment.id} className="rounded-md border border-slate-200 p-3">
                 <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
                   <div className="text-sm font-medium text-slate-900">{comment.author.name}</div>
-                  <div className="text-xs text-slate-500">{formatDate(comment.createdAt)}</div>
+                  <div className="text-xs text-slate-500" suppressHydrationWarning>
+                    {formatDate(comment.createdAt)}
+                  </div>
                 </div>
                 <p className="mt-2 text-sm whitespace-pre-wrap text-slate-700">{comment.body}</p>
               </li>

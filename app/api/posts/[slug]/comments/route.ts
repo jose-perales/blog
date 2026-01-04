@@ -60,6 +60,12 @@ export async function POST(request: Request, context: RouteContext) {
       return NextResponse.json({ ok: false, error: "unauthorized" }, { status: 401 });
     }
 
+    // Verify the user still exists in the database (handles stale JWT after DB reset)
+    const userExists = await prisma.user.findUnique({ where: { id: userId } });
+    if (!userExists) {
+      return NextResponse.json({ ok: false, error: "unauthorized" }, { status: 401 });
+    }
+
     const bodyJson = (await request.json()) as unknown;
     const body = typeof (bodyJson as any)?.body === "string" ? (bodyJson as any).body.trim() : "";
 
