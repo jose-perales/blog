@@ -99,6 +99,23 @@ describe("Milestone 5: engagement routes", () => {
     expect(body.error).toBe("unauthorized");
   });
 
+  it("likes POST returns 401 if user in session no longer exists in DB", async () => {
+    // Simulates a stale JWT referencing a deleted user (e.g., after DB reset)
+    mockSession = { user: { id: "non-existent-user-id" } };
+
+    const res = await likesPOST(
+      new Request("http://localhost/api/posts/x/likes", { method: "POST" }),
+      {
+        params: { slug },
+      },
+    );
+
+    expect(res.status).toBe(401);
+    const body = (await res.json()) as any;
+    expect(body.ok).toBe(false);
+    expect(body.error).toBe("unauthorized");
+  });
+
   it("can like/unlike a post and reflects count + likedByMe", async () => {
     const user = await createUser();
     mockSession = { user: { id: user.id } };

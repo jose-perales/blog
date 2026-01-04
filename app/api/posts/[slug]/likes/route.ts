@@ -60,6 +60,12 @@ export async function POST(_request: Request, context: RouteContext) {
       return NextResponse.json({ ok: false, error: "unauthorized" }, { status: 401 });
     }
 
+    // Verify the user still exists in the database (handles stale JWT after DB reset)
+    const userExists = await prisma.user.findUnique({ where: { id: userId } });
+    if (!userExists) {
+      return NextResponse.json({ ok: false, error: "unauthorized" }, { status: 401 });
+    }
+
     const result = await prisma.$transaction(async (tx) => {
       const post = await tx.post.upsert({
         where: { slug },
