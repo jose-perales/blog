@@ -20,9 +20,9 @@ Use this checklist to implement Design Milestone 1 only.
 
 ## 0) Prerequisites
 
-- [ ] Read `docs/design-system.md` thoroughly
-- [ ] Existing app runs: `npm run dev`
-- [ ] All tests pass: `npm test`
+- [x] Read `docs/design-system.md` thoroughly
+- [x] Existing app runs: `npm run dev`
+- [x] All tests pass: `npm test`
 
 **Done when**: You understand the design system and have a working baseline.
 
@@ -32,10 +32,10 @@ Use this checklist to implement Design Milestone 1 only.
 
 ### 1.1) Unit test for Tailwind config
 
-- [ ] Create `tests/unit/design/tailwind-config.test.ts`
-- [ ] Test that config exports expected color tokens
-- [ ] Test that config exports expected spacing scale
-- [ ] Test that config exports expected font families
+- [x] Create `tests/unit/design/tailwind-config.test.ts`
+- [x] Test that config exports expected color tokens
+- [x] Test that config exports expected spacing scale
+- [x] Test that config exports expected font families
 
 ```typescript
 // Example structure
@@ -52,9 +52,9 @@ describe("Tailwind Config", () => {
 
 ### 1.2) Component test for dark theme
 
-- [ ] Create `tests/ui/components/theme.test.tsx`
-- [ ] Test that root layout applies dark background class
-- [ ] Test that body has correct color scheme
+- [x] Create `tests/ui/components/theme.test.tsx`
+- [x] Test that root layout applies dark background class
+- [x] Test that body has correct color scheme
 
 **Done when**: Tests exist and FAIL (red phase).
 
@@ -62,8 +62,8 @@ describe("Tailwind Config", () => {
 
 ## 2) Update Tailwind configuration
 
-- [ ] Open `tailwind.config.ts`
-- [ ] Add color palette under `theme.extend.colors`:
+- [x] Open `tailwind.config.ts`
+- [x] Add color palette under `theme.extend.colors`:
 
 ```typescript
 colors: {
@@ -91,7 +91,7 @@ colors: {
 }
 ```
 
-- [ ] Add spacing scale under `theme.extend.spacing`:
+- [x] Add spacing scale under `theme.extend.spacing`:
 
 ```typescript
 spacing: {
@@ -101,7 +101,7 @@ spacing: {
 }
 ```
 
-- [ ] Add font families under `theme.extend.fontFamily`:
+- [x] Add font families under `theme.extend.fontFamily`:
 
 ```typescript
 fontFamily: {
@@ -116,8 +116,8 @@ fontFamily: {
 
 ## 3) Define CSS custom properties
 
-- [ ] Open `app/globals.css`
-- [ ] Update `:root` block with CSS custom properties:
+- [x] Open `app/globals.css`
+- [x] Update `:root` block with CSS custom properties:
 
 ```css
 :root {
@@ -139,7 +139,7 @@ fontFamily: {
 }
 ```
 
-- [ ] Update `body` styles:
+- [x] Update `body` styles:
 
 ```css
 body {
@@ -155,10 +155,10 @@ body {
 
 ## 4) Update root layout
 
-- [ ] Open `app/layout.tsx`
-- [ ] Add `className` to `<html>` tag for dark background
-- [ ] Ensure no conflicting light-mode classes
-- [ ] Update metadata if needed (theme-color meta tag)
+- [x] Open `app/layout.tsx`
+- [x] Add `className` to `<html>` tag for dark background
+- [x] Ensure no conflicting light-mode classes
+- [x] Update metadata if needed (theme-color meta tag)
 
 ```tsx
 <html lang="en" className="bg-background text-foreground">
@@ -170,9 +170,9 @@ body {
 
 ## 5) Run tests (green phase)
 
-- [ ] Run `npm test` — unit tests should pass
-- [ ] Run `npm run lint` — no lint errors
-- [ ] Run `npm run dev` — visual inspection shows dark background
+- [x] Run `npm test` — unit tests should pass
+- [x] Run `npm run lint` — no lint errors
+- [x] Run `npm run dev` — visual inspection shows dark background
 
 **Done when**: All tests pass, app displays dark theme.
 
@@ -180,9 +180,9 @@ body {
 
 ## 6) Refactor (if needed)
 
-- [ ] Remove any redundant CSS
-- [ ] Ensure no duplicate color definitions
-- [ ] Verify Tailwind purges unused styles correctly
+- [x] Remove any redundant CSS
+- [x] Ensure no duplicate color definitions
+- [x] Verify Tailwind purges unused styles correctly
 
 **Done when**: Code is clean and minimal.
 
@@ -190,9 +190,9 @@ body {
 
 ## 7) Commit checkpoint
 
-- [ ] Stage changes: `git add -A`
-- [ ] Commit: `git commit -m "design(m1): foundation - tokens and dark base"`
-- [ ] Verify commit is clean: `git status`
+- [x] Stage changes: `git add -A`
+- [x] Commit: `git commit -m "design(m1): foundation - tokens and dark base"`
+- [x] Verify commit is clean: `git status`
 
 **Done when**: Changes are committed and ready for review.
 
@@ -202,10 +202,10 @@ body {
 
 Before marking complete:
 
-- [ ] `npm run dev` shows dark background on all pages
-- [ ] `npm test` passes
-- [ ] `npm run lint` passes
-- [ ] `npm run build` succeeds
-- [ ] No TypeScript errors
-- [ ] Colors match design system hex values exactly
-- [ ] CSS custom properties are accessible in DevTools
+- [x] `npm run dev` shows dark background on all pages
+- [x] `npm test` passes
+- [x] `npm run lint` passes
+- [x] `npm run build` succeeds
+- [x] No TypeScript errors
+- [x] Colors match design system hex values exactly
+- [x] CSS custom properties are accessible in DevTools

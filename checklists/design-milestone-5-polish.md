@@ -14,8 +14,8 @@ Use this checklist to implement Design Milestone 5 only.
 
 ## Prerequisites
 
-- [ ] Design Milestone 4 complete and committed
-- [ ] All core styling in place
+- [x] Design Milestone 4 complete and committed
+- [x] All core styling in place
 
 ---
 
@@ -23,20 +23,20 @@ Use this checklist to implement Design Milestone 5 only.
 
 ### 0.1) Accessibility tests
 
-- [ ] Create `tests/ui/accessibility/focus-states.test.tsx`
-- [ ] Test that interactive elements have visible focus
-- [ ] Test that focus ring meets contrast requirements
+- [x] Create `tests/ui/accessibility/focus-states.test.tsx`
+- [x] Test that interactive elements have visible focus
+- [x] Test that focus ring meets contrast requirements
 
 ### 0.2) Reduced motion tests
 
-- [ ] Create `tests/ui/accessibility/reduced-motion.test.tsx`
-- [ ] Test that `prefers-reduced-motion` disables transitions
+- [x] Create `tests/ui/accessibility/reduced-motion.test.tsx`
+- [x] Test that `prefers-reduced-motion` disables transitions
 
 ### 0.3) E2E accessibility tests
 
-- [ ] Update `tests/e2e/accessibility.spec.ts` (create if needed)
-- [ ] Test keyboard navigation through main flows
-- [ ] Test that all interactive elements are reachable
+- [x] Update `tests/e2e/accessibility.spec.ts` (create if needed)
+- [x] Test keyboard navigation through main flows
+- [x] Test that all interactive elements are reachable
 
 **Done when**: Tests exist and are ready to verify.
 
@@ -46,7 +46,7 @@ Use this checklist to implement Design Milestone 5 only.
 
 ### 1.1) Global focus styles
 
-- [ ] Add global focus styles to globals.css:
+- [x] Add global focus styles to globals.css:
 
 ```css
 /* Focus visible for keyboard users */
@@ -63,10 +63,10 @@ Use this checklist to implement Design Milestone 5 only.
 
 ### 1.2) Component-specific focus
 
-- [ ] Buttons: ring on focus-visible
-- [ ] Links: underline + color change on focus
-- [ ] Inputs: border change + ring on focus
-- [ ] Cards (if interactive): subtle outline
+- [x] Buttons: ring on focus-visible
+- [x] Links: underline + color change on focus
+- [x] Inputs: border change + ring on focus
+- [x] Cards (if interactive): subtle outline
 
 **Done when**: All interactive elements have visible focus states.
 
@@ -76,7 +76,7 @@ Use this checklist to implement Design Milestone 5 only.
 
 ### 2.1) Global transition rules
 
-- [ ] Add transition utilities to globals.css:
+- [x] Add transition utilities to globals.css:
 
 ```css
 /* Standard transition for interactive elements */
@@ -89,11 +89,11 @@ Use this checklist to implement Design Milestone 5 only.
 
 ### 2.2) Verify all transitions
 
-- [ ] Links: 150ms color transition
-- [ ] Buttons: 150ms background transition
-- [ ] Inputs: 150ms border transition
-- [ ] Cards: 150ms background transition (if interactive)
-- [ ] No bounce, wiggle, or pulse animations
+- [x] Links: 150ms color transition
+- [x] Buttons: 150ms background transition
+- [x] Inputs: 150ms border transition
+- [x] Cards: 150ms background transition (if interactive)
+- [x] No bounce, wiggle, or pulse animations
 
 **Done when**: Transitions are consistent and subtle.
 
@@ -105,7 +105,7 @@ Visual regression tests catch unintended styling changes by comparing screenshot
 
 ### 2.5.1) Configure Playwright for screenshots
 
-- [ ] Enable screenshot comparisons in `playwright.config.ts`:
+- [x] Enable screenshot comparisons in `playwright.config.ts`:
 
 ```ts
 expect: {
@@ -118,7 +118,7 @@ expect: {
 
 ### 2.5.2) Create visual regression test suite
 
-- [ ] Create `tests/e2e/visual-regression.spec.ts`:
+- [x] Create `tests/e2e/visual-regression.spec.ts`:
 
 ```ts
 import { test, expect } from "@playwright/test";
@@ -153,9 +153,9 @@ test.describe("visual regression", () => {
 
 ### 2.5.3) Generate baseline screenshots
 
-- [ ] Run `npx playwright test visual-regression --update-snapshots` to create baselines
-- [ ] Commit baseline screenshots to `tests/e2e/visual-regression.spec.ts-snapshots/`
-- [ ] Document: baselines must be regenerated after intentional design changes
+- [x] Run `npx playwright test visual-regression --update-snapshots` to create baselines
+- [x] Commit baseline screenshots to `tests/e2e/visual-regression.spec.ts-snapshots/`
+- [x] Document: baselines must be regenerated after intentional design changes
 
 ### 2.5.4) CI integration
 
@@ -169,7 +169,7 @@ test.describe("visual regression", () => {
 
 ## 3) Implement reduced motion support
 
-- [ ] Add reduced motion media query to globals.css:
+- [x] Add reduced motion media query to globals.css:
 
 ```css
 @media (prefers-reduced-motion: reduce) {
@@ -184,7 +184,7 @@ test.describe("visual regression", () => {
 }
 ```
 
-- [ ] Test with browser settings or OS settings
+- [x] Test with browser settings or OS settings
 
 **Done when**: Animations/transitions disabled when preference set.
 
@@ -221,8 +221,8 @@ test.describe("visual regression", () => {
 
 ### If NOT implementing:
 
-- [ ] Document decision to keep dark-only for now
-- [ ] Ensure `color-scheme: dark` is set
+- [x] Document decision to keep dark-only for now
+- [x] Ensure `color-scheme: dark` is set
 
 **Done when**: Light mode works OR decision documented.
 
@@ -232,11 +232,11 @@ test.describe("visual regression", () => {
 
 ### 5.1) Color contrast
 
-- [ ] Check body text contrast (should be > 4.5:1)
-- [ ] Check heading contrast
-- [ ] Check link contrast (normal and hover)
-- [ ] Check muted text contrast (>= 3:1 for large text)
-- [ ] Use Chrome DevTools or axe-core
+- [x] Check body text contrast (should be > 4.5:1)
+- [x] Check heading contrast
+- [x] Check link contrast (normal and hover)
+- [x] Check muted text contrast (>= 3:1 for large text)
+- [x] Use Chrome DevTools or axe-core
 
 ### 5.2) Semantic HTML
 
@@ -305,10 +305,10 @@ test.describe("visual regression", () => {
 
 ## 7) Run all tests
 
-- [ ] `npm test` — unit/component tests pass
-- [ ] `npm run lint` — no errors
-- [ ] `npm run build` — builds successfully
-- [ ] `npm run test:e2e` — E2E tests pass
+- [x] `npm test` — unit/component tests pass
+- [x] `npm run lint` — no errors
+- [x] `npm run build` — builds successfully
+- [x] `npm run test:e2e` — E2E tests pass
 
 **Done when**: All tests pass.
 

@@ -12,8 +12,8 @@ Use this checklist to implement Design Milestone 4 only.
 
 ## Prerequisites
 
-- [ ] Design Milestone 3 complete and committed
-- [ ] Components styled correctly
+- [x] Design Milestone 3 complete and committed
+- [x] Components styled correctly
 
 ---
 
@@ -21,21 +21,21 @@ Use this checklist to implement Design Milestone 4 only.
 
 ### 0.1) Code block styling tests
 
-- [ ] Create or update `tests/ui/components/code-block.test.tsx`
-- [ ] Test that code blocks have correct background color
-- [ ] Test that code blocks have correct border-radius
-- [ ] Test that code figure element renders correctly
+- [x] Create or update `tests/ui/components/code-block.test.tsx`
+- [x] Test that code blocks have correct background color
+- [x] Test that code blocks have correct border-radius
+- [x] Test that code figure element renders correctly
 
 ### 0.2) Inline code tests
 
-- [ ] Test inline code has correct styling
-- [ ] Test inline code is distinguishable from surrounding text
+- [x] Test inline code has correct styling
+- [x] Test inline code is distinguishable from surrounding text
 
 ### 0.3) E2E code rendering test
 
-- [ ] Update `tests/e2e/post-rendering.spec.ts`
-- [ ] Verify code blocks render with syntax highlighting
-- [ ] Verify no visual regressions
+- [x] Update `tests/e2e/post-rendering.spec.ts`
+- [x] Verify code blocks render with syntax highlighting
+- [x] Verify no visual regressions
 
 **Done when**: Tests exist and FAIL (or are ready to verify).
 
@@ -45,18 +45,18 @@ Use this checklist to implement Design Milestone 4 only.
 
 ### Option A: Use existing dark theme
 
-- [ ] Review available Shiki themes: `github-dark`, `one-dark-pro`, `vitesse-dark`
-- [ ] Select theme that closest matches palette
-- [ ] Configure in MDX/rehype-pretty-code setup
+- [x] Review available Shiki themes: `github-dark`, `one-dark-pro`, `vitesse-dark`
+- [x] Select theme that closest matches palette
+- [x] Configure in MDX/rehype-pretty-code setup
 
 ### Option B: Create custom theme (advanced)
 
-- [ ] Create custom theme JSON matching design colors
-- [ ] Configure rehype-pretty-code to use custom theme
+- [x] Create custom theme JSON matching design colors
+- [x] Configure rehype-pretty-code to use custom theme
 
 ### Recommended: `github-dark-dimmed` or `vitesse-dark`
 
-- [ ] Update MDX configuration (likely in `next.config.ts` or content loader)
+- [x] Update MDX configuration (likely in `next.config.ts` or content loader)
 
 ```typescript
 // Example rehype-pretty-code options
@@ -73,7 +73,7 @@ Use this checklist to implement Design Milestone 4 only.
 
 ## 2) Update code block container styles
 
-- [ ] Update code block styles in `globals.css`:
+- [x] Update code block styles in `globals.css`:
 
 ```css
 /* Code blocks via rehype-pretty-code */
@@ -120,7 +120,7 @@ Use this checklist to implement Design Milestone 4 only.
 
 ## 3) Update inline code styling
 
-- [ ] Ensure inline code styling in globals.css:
+- [x] Ensure inline code styling in globals.css:
 
 ```css
 .mdx code:not([data-language]) {
@@ -139,14 +139,14 @@ code:not([data-language]):not(.mdx code) {
 
 ## 4) Test with sample content
 
-- [ ] Open a post with code blocks: `npm run dev`
-- [ ] Verify:
-  - [ ] Code background is darker than page (`#0d0d0d`)
-  - [ ] Syntax colors are muted and cohesive
-  - [ ] Line highlighting works
-  - [ ] Code titles/filenames display correctly
-  - [ ] Horizontal scroll on overflow (no wrapping)
-  - [ ] Line numbers (if enabled) are muted
+- [x] Open a post with code blocks: `npm run dev`
+- [x] Verify:
+  - [x] Code background is darker than page (`#0d0d0d`)
+  - [x] Syntax colors are muted and cohesive
+  - [x] Line highlighting works
+  - [x] Code titles/filenames display correctly
+  - [x] Horizontal scroll on overflow (no wrapping)
+  - [x] Line numbers (if enabled) are muted
 
 **Done when**: Code blocks look intentional, not garish.
 
@@ -154,11 +154,11 @@ code:not([data-language]):not(.mdx code) {
 
 ## 5) Handle edge cases
 
-- [ ] Very long lines: horizontal scroll works
-- [ ] Empty code blocks: no visual glitch
-- [ ] Inline code in headings: styled appropriately
-- [ ] Code in blockquotes: readable
-- [ ] Code in lists: indentation correct
+- [x] Very long lines: horizontal scroll works
+- [x] Empty code blocks: no visual glitch
+- [x] Inline code in headings: styled appropriately
+- [x] Code in blockquotes: readable
+- [x] Code in lists: indentation correct
 
 **Done when**: Edge cases handled gracefully.
 
@@ -166,10 +166,10 @@ code:not([data-language]):not(.mdx code) {
 
 ## 6) Run tests (green phase)
 
-- [ ] `npm test` — all tests pass
-- [ ] `npm run lint` — no errors
-- [ ] `npm run build` — builds successfully
-- [ ] `npm run test:e2e` — E2E tests pass
+- [x] `npm test` — all tests pass
+- [x] `npm run lint` — no errors
+- [x] `npm run build` — builds successfully
+- [x] `npm run test:e2e` — E2E tests pass
 
 **Done when**: All tests pass.
 
@@ -177,9 +177,9 @@ code:not([data-language]):not(.mdx code) {
 
 ## 7) Refactor
 
-- [ ] Consolidate code-related styles
-- [ ] Ensure theme is configured in one place
-- [ ] Remove any !important overrides if possible
+- [x] Consolidate code-related styles
+- [x] Ensure theme is configured in one place
+- [x] Remove any !important overrides if possible
 
 **Done when**: Code styling is clean and maintainable.
 
@@ -187,8 +187,8 @@ code:not([data-language]):not(.mdx code) {
 
 ## 8) Commit checkpoint
 
-- [ ] `git add -A`
-- [ ] `git commit -m "design(m4): code blocks and syntax highlighting"`
+- [x] `git add -A`
+- [x] `git commit -m "design(m4): code blocks and syntax highlighting"`
 
 **Done when**: Committed and ready for review.
 
@@ -196,13 +196,13 @@ code:not([data-language]):not(.mdx code) {
 
 ## Verification Checklist
 
-- [ ] Code block background is #0d0d0d
-- [ ] Syntax highlighting is muted, cohesive
-- [ ] Code font is monospace (JetBrains Mono or fallback)
-- [ ] Border-radius is 0.5rem (8px)
-- [ ] No decorative chrome (fake window buttons)
-- [ ] Line highlighting works
-- [ ] Code titles/filenames display
-- [ ] Inline code is styled
-- [ ] Horizontal scroll on long lines
-- [ ] All tests pass
+- [x] Code block background is #0d0d0d
+- [x] Syntax highlighting is muted, cohesive
+- [x] Code font is monospace (JetBrains Mono or fallback)
+- [x] Border-radius is 0.5rem (8px)
+- [x] No decorative chrome (fake window buttons)
+- [x] Line highlighting works
+- [x] Code titles/filenames display
+- [x] Inline code is styled
+- [x] Horizontal scroll on long lines
+- [x] All tests pass

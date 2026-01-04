@@ -23,8 +23,8 @@ Use this checklist to implement Milestone 3 only.
 
 ## 0) Prereqs
 
-- [ ] Milestone 2 merged and `npm run build` passes
-- [ ] Docker is available locally
+- [x] Milestone 2 merged and `npm run build` passes
+- [x] Docker is available locally
 
 **Done when**: You can run the app and Docker before adding DB.
 
@@ -32,13 +32,13 @@ Use this checklist to implement Milestone 3 only.
 
 ## 1) Add Docker Compose for Postgres (local dev)
 
-- [ ] Add `docker-compose.yml` at repo root with:
+- [x] Add `docker-compose.yml` at repo root with:
   - `postgres` image
   - mapped port (usually `5432:5432`)
   - persisted volume
   - `POSTGRES_USER`, `POSTGRES_PASSWORD`, `POSTGRES_DB`
-- [ ] Add a `.env.example` documenting required env vars
-- [ ] Add `.env` to `.gitignore` (should already be ignored)
+- [x] Add a `.env.example` documenting required env vars
+- [x] Add `.env` to `.gitignore` (should already be ignored)
 
 **Done when**: `docker compose up -d` starts Postgres and it stays healthy.
 
@@ -46,9 +46,9 @@ Use this checklist to implement Milestone 3 only.
 
 ## 2) Define environment variables
 
-- [ ] Add `DATABASE_URL` (Prisma format), for example:
+- [x] Add `DATABASE_URL` (Prisma format), for example:
   - `postgresql://USER:PASSWORD@localhost:5432/DB?schema=public`
-- [ ] Ensure the app does not crash at runtime if `DATABASE_URL` is missing (fail fast with a clear message is OK)
+- [x] Ensure the app does not crash at runtime if `DATABASE_URL` is missing (fail fast with a clear message is OK)
 
 **Done when**: `DATABASE_URL` is documented and works locally.
 
@@ -56,13 +56,13 @@ Use this checklist to implement Milestone 3 only.
 
 ## 3) Initialize Prisma
 
-- [ ] Install Prisma deps:
+- [x] Install Prisma deps:
   - `prisma` (dev)
   - `@prisma/client`
-- [ ] Create `prisma/schema.prisma`
+- [x] Create `prisma/schema.prisma`
   - datasource: `postgresql`
   - generator: `prisma-client-js`
-- [ ] Add scripts to `package.json` (minimal set):
+- [x] Add scripts to `package.json` (minimal set):
   - `db:studio` → `prisma studio`
   - `db:migrate` → `prisma migrate dev`
   - (optional) `db:push` → `prisma db push` (avoid using as primary workflow)
@@ -75,7 +75,7 @@ Use this checklist to implement Milestone 3 only.
 
 Only do the minimum necessary tables for “connectivity” now. Recommended:
 
-- [ ] `Post` table (at least):
+- [x] `Post` table (at least):
   - `id` (cuid/uuid)
   - `slug` (unique)
   - `createdAt`
@@ -89,7 +89,7 @@ Note: Full schema for likes/comments/auth is later. Don’t implement User/Sessi
 
 ## 5) DB client helper (server-only)
 
-- [ ] Add a Prisma Client singleton helper (example: `lib/db.ts`)
+- [x] Add a Prisma Client singleton helper (example: `lib/db.ts`)
   - Avoid multiple clients in dev with hot reload
   - Mark as server-only
 
@@ -103,13 +103,13 @@ Pick one tiny proof (no new pages beyond the allowed list):
 
 Option A (recommended): Post page server-side read
 
-- [ ] On `/posts/[slug]`, attempt a DB read of `Post` by `slug`
-- [ ] If not present, do nothing (don’t auto-create yet)
-- [ ] Keep UI unchanged except maybe a small “DB connected” debug line (optional and removable)
+- [x] On `/posts/[slug]`, attempt a DB read of `Post` by `slug`
+- [x] If not present, do nothing (don’t auto-create yet)
+- [x] Keep UI unchanged except maybe a small “DB connected” debug line (optional and removable)
 
 Option B: API health endpoint (only if needed)
 
-- [ ] Add `app/api/health/db/route.ts` that runs a trivial query and returns `{ ok: true }`
+- [x] Add `app/api/health/db/route.ts` that runs a trivial query and returns `{ ok: true }`
 
 **Done when**: You can prove the app can connect to Postgres via Prisma.
 
@@ -119,18 +119,18 @@ Option B: API health endpoint (only if needed)
 
 Commands:
 
-- [ ] `docker compose up -d`
-- [ ] `npm run lint`
-- [ ] `npm run format:check`
-- [ ] `npm run build`
-- [ ] `npm run dev`
-- [ ] `npx prisma migrate dev` (creates migration + applies)
-- [ ] `npx prisma studio` opens and shows tables
+- [x] `docker compose up -d`
+- [x] `npm run lint`
+- [x] `npm run format:check`
+- [x] `npm run build`
+- [x] `npm run dev`
+- [x] `npx prisma migrate dev` (creates migration + applies)
+- [x] `npx prisma studio` opens and shows tables
 
 Manual checks:
 
-- [ ] App routes still load
-- [ ] Connectivity proof works (Post read or health endpoint)
+- [x] App routes still load
+- [x] Connectivity proof works (Post read or health endpoint)
 
 ---
 

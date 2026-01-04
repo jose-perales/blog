@@ -12,8 +12,8 @@ Use this checklist to implement Design Milestone 3 only.
 
 ## Prerequisites
 
-- [ ] Design Milestone 2 complete and committed
-- [ ] Typography and layout working correctly
+- [x] Design Milestone 2 complete and committed
+- [x] Typography and layout working correctly
 
 ---
 
@@ -21,29 +21,29 @@ Use this checklist to implement Design Milestone 3 only.
 
 ### 0.1) Button component tests
 
-- [ ] Create `tests/ui/components/button.test.tsx`
-- [ ] Test ghost variant renders correct classes
-- [ ] Test solid variant renders correct classes
-- [ ] Test hover states are defined
+- [x] Create `tests/ui/components/button.test.tsx`
+- [x] Test ghost variant renders correct classes
+- [x] Test solid variant renders correct classes
+- [x] Test hover states are defined
 
 ### 0.2) Form input tests
 
-- [ ] Create `tests/ui/components/input.test.tsx`
-- [ ] Test input renders with dark background
-- [ ] Test focus state has visible ring
-- [ ] Test error state displays correctly
+- [x] Create `tests/ui/components/input.test.tsx`
+- [x] Test input renders with dark background
+- [x] Test focus state has visible ring
+- [x] Test error state displays correctly
 
 ### 0.3) Navigation tests
 
-- [ ] Create `tests/ui/components/navigation.test.tsx`
-- [ ] Test nav links render with correct styling
-- [ ] Test active state is distinguishable
+- [x] Create `tests/ui/components/navigation.test.tsx`
+- [x] Test nav links render with correct styling
+- [x] Test active state is distinguishable
 
 ### 0.4) Card tests
 
-- [ ] Create `tests/ui/components/card.test.tsx`
-- [ ] Test card has elevated background
-- [ ] Test card has correct border-radius
+- [x] Create `tests/ui/components/card.test.tsx`
+- [x] Test card has elevated background
+- [x] Test card has correct border-radius
 
 **Done when**: Tests exist and FAIL.
 
@@ -53,7 +53,7 @@ Use this checklist to implement Design Milestone 3 only.
 
 ### Option A: Tailwind classes directly
 
-- [ ] Define button base styles in globals.css or as component
+- [x] Define button base styles in globals.css or as component
 
 ```css
 .btn {
@@ -75,7 +75,7 @@ Use this checklist to implement Design Milestone 3 only.
 
 ### Option B: React component (if warranted)
 
-- [ ] Create `components/ui/button.tsx` if complexity requires it
+- [x] Create `components/ui/button.tsx` if complexity requires it
 
 **Done when**: Button variants work and match design.
 
@@ -83,7 +83,7 @@ Use this checklist to implement Design Milestone 3 only.
 
 ## 2) Create form input styles
 
-- [ ] Add input styles to globals.css:
+- [x] Add input styles to globals.css:
 
 ```css
 .input {
@@ -109,7 +109,7 @@ Use this checklist to implement Design Milestone 3 only.
 
 ## 3) Update navigation
 
-- [ ] Update header/nav in `app/layout.tsx`:
+- [x] Update header/nav in `app/layout.tsx`:
 
 ```tsx
 <nav className="border-accent-subtle bg-background border-b">
@@ -144,7 +144,7 @@ Use this checklist to implement Design Milestone 3 only.
 
 ## 4) Create card/container styles
 
-- [ ] Add card styles to globals.css:
+- [x] Add card styles to globals.css:
 
 ```css
 .card {
@@ -162,7 +162,7 @@ Use this checklist to implement Design Milestone 3 only.
 
 ## 5) Update post list on home page
 
-- [ ] Update `app/page.tsx` post list items:
+- [x] Update `app/page.tsx` post list items:
 
 ```tsx
 <article className="group border-accent-subtle border-b py-6 last:border-0">
@@ -182,12 +182,12 @@ Use this checklist to implement Design Milestone 3 only.
 
 ## 6) Update auth forms
 
-- [ ] Update `app/auth/sign-in/page.tsx`:
+- [x] Update `app/auth/sign-in/page.tsx`:
   - Apply `.input` class to form fields
   - Apply `.btn-solid` to submit button
   - Apply `.label` to labels
 
-- [ ] Update `app/auth/sign-up/page.tsx`:
+- [x] Update `app/auth/sign-up/page.tsx`:
   - Same treatment as sign-in
 
 **Done when**: Auth forms match design system.
@@ -196,7 +196,7 @@ Use this checklist to implement Design Milestone 3 only.
 
 ## 7) Update newsletter form
 
-- [ ] Update `app/newsletter/newsletter-form.tsx`:
+- [x] Update `app/newsletter/newsletter-form.tsx`:
   - Email input uses `.input` class
   - Submit button uses `.btn-solid` or `.btn-ghost`
   - Success/error states styled appropriately
@@ -207,7 +207,7 @@ Use this checklist to implement Design Milestone 3 only.
 
 ## 8) Update sign-out button
 
-- [ ] Update `app/sign-out-button.tsx`:
+- [x] Update `app/sign-out-button.tsx`:
   - Apply ghost button styling
 
 **Done when**: Sign-out button is subtle but clear.
@@ -216,10 +216,10 @@ Use this checklist to implement Design Milestone 3 only.
 
 ## 9) Run tests (green phase)
 
-- [ ] `npm test` — all tests pass
-- [ ] `npm run lint` — no errors
-- [ ] `npm run build` — builds successfully
-- [ ] Visual inspection of all components
+- [x] `npm test` — all tests pass
+- [x] `npm run lint` — no errors
+- [x] `npm run build` — builds successfully
+- [x] Visual inspection of all components
 
 **Done when**: Tests pass and components look correct.
 
@@ -227,9 +227,9 @@ Use this checklist to implement Design Milestone 3 only.
 
 ## 10) Refactor
 
-- [ ] Extract repeated patterns into shared classes
-- [ ] Ensure consistent spacing across components
-- [ ] Remove any unused styles
+- [x] Extract repeated patterns into shared classes
+- [x] Ensure consistent spacing across components
+- [x] Remove any unused styles
 
 **Done when**: Code is DRY and maintainable.
 
@@ -237,8 +237,8 @@ Use this checklist to implement Design Milestone 3 only.
 
 ## 11) Commit checkpoint
 
-- [ ] `git add -A`
-- [ ] `git commit -m "design(m3): component styling - buttons, inputs, nav, cards"`
+- [x] `git add -A`
+- [x] `git commit -m "design(m3): component styling - buttons, inputs, nav, cards"`
 
 **Done when**: Committed and ready for review.
 
@@ -246,12 +246,12 @@ Use this checklist to implement Design Milestone 3 only.
 
 ## Verification Checklist
 
-- [ ] Buttons have ghost and solid variants
-- [ ] Inputs have dark background with visible focus
-- [ ] Navigation is minimal and functional
-- [ ] Cards use subtle elevation (no shadows)
-- [ ] Post list items are clean and scannable
-- [ ] Auth forms are styled consistently
-- [ ] Newsletter form matches design
-- [ ] All hover/focus states work
-- [ ] All tests pass
+- [x] Buttons have ghost and solid variants
+- [x] Inputs have dark background with visible focus
+- [x] Navigation is minimal and functional
+- [x] Cards use subtle elevation (no shadows)
+- [x] Post list items are clean and scannable
+- [x] Auth forms are styled consistently
+- [x] Newsletter form matches design
+- [x] All hover/focus states work
+- [x] All tests pass

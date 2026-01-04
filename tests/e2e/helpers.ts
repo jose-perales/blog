@@ -30,7 +30,7 @@ export async function signIn(page: Page, email: string, password: string) {
 
 export async function gotoFirstPostFromHome(page: Page) {
   await page.goto("/");
-  const postsHeading = page.getByRole("heading", { name: "Posts", exact: true });
+  const postsHeading = page.getByRole("heading", { name: "Latest posts", exact: true });
   await postsHeading.waitFor();
 
   const firstPostLink = page.locator("main a[href^='/posts/']").first();

@@ -24,7 +24,7 @@ Use this checklist to implement Milestone 2 only.
 
 ## 0) Prereqs
 
-- [ ] Milestone 1 is merged and `npm run dev`, known routes work
+- [x] Milestone 1 is merged and `npm run dev`, known routes work
 
 **Done when**: The app boots cleanly before you start Milestone 2.
 
@@ -32,15 +32,15 @@ Use this checklist to implement Milestone 2 only.
 
 ## 1) Add content directory + sample MDX posts
 
-- [ ] Create `content/posts/` directory
-- [ ] Add 2–3 sample posts as `*.mdx`
-- [ ] Each post includes required frontmatter:
+- [x] Create `content/posts/` directory
+- [x] Add 2–3 sample posts as `*.mdx`
+- [x] Each post includes required frontmatter:
   - `title`
   - `date` (ISO string recommended: `YYYY-MM-DD`)
   - `description`
   - `tags` (array)
   - `slug`
-- [ ] At least one post includes:
+- [x] At least one post includes:
   - headings, links, lists, blockquote
   - fenced code blocks with language
   - a code block title/filename (supported by `rehype-pretty-code`)
@@ -61,8 +61,8 @@ Pick a simple, well-supported stack. Recommended:
   - `rehype-pretty-code`
   - `shiki`
 
-- [ ] Install packages with `npm`
-- [ ] Add any minimal config needed to run in Next App Router (no new pages)
+- [x] Install packages with `npm`
+- [x] Add any minimal config needed to run in Next App Router (no new pages)
 
 **Done when**: Dependencies install cleanly and TypeScript types resolve.
 
@@ -72,15 +72,15 @@ Pick a simple, well-supported stack. Recommended:
 
 Create a small module (example location: `lib/content/`) that:
 
-- [ ] Lists posts for Home:
+- [x] Lists posts for Home:
   - reads `content/posts/*.mdx`
   - parses frontmatter into a typed object
   - sorts by date descending
   - returns: `title`, `date`, `description`, `tags`, `slug`
-- [ ] Loads a single post by `slug`:
+- [x] Loads a single post by `slug`:
   - returns frontmatter + raw MDX content (or compiled result)
-- [ ] Validates required frontmatter keys (basic runtime validation; keep it minimal)
-- [ ] Handles “post not found” cleanly
+- [x] Validates required frontmatter keys (basic runtime validation; keep it minimal)
+- [x] Handles “post not found” cleanly
 
 **Done when**: You can import the loader from pages and get deterministic results.
 
@@ -90,9 +90,9 @@ Create a small module (example location: `lib/content/`) that:
 
 Update the Home route to use the loader:
 
-- [ ] Replace placeholder list with real posts
-- [ ] Render: title, date, description, tags
-- [ ] Each item links to `/posts/[slug]`
+- [x] Replace placeholder list with real posts
+- [x] Render: title, date, description, tags
+- [x] Each item links to `/posts/[slug]`
 
 **Done when**: `/` shows posts driven by `content/posts`.
 
@@ -102,13 +102,13 @@ Update the Home route to use the loader:
 
 Update `/posts/[slug]`:
 
-- [ ] Load post by slug (server-side)
-- [ ] Render MDX content
-- [ ] Configure `rehype-pretty-code` + Shiki:
+- [x] Load post by slug (server-side)
+- [x] Render MDX content
+- [x] Configure `rehype-pretty-code` + Shiki:
   - code fences highlighted by language
   - support optional title/filename
   - support line highlighting
-- [ ] Keep counts/likes/comments as placeholders only (no DB)
+- [x] Keep counts/likes/comments as placeholders only (no DB)
 
 **Done when**: `/posts/<slug>` renders rich MDX including highlighted code blocks.
 
@@ -116,8 +116,8 @@ Update `/posts/[slug]`:
 
 ## 6) Metadata generation (SEO)
 
-- [ ] Implement `generateMetadata` for the Post route using frontmatter
-- [ ] Set page title and description from MDX metadata
+- [x] Implement `generateMetadata` for the Post route using frontmatter
+- [x] Set page title and description from MDX metadata
 
 **Done when**: Post pages have correct metadata derived from frontmatter.
 
@@ -125,9 +125,9 @@ Update `/posts/[slug]`:
 
 ## 7) Styling constraints
 
-- [ ] Use existing Tailwind approach only (no new theme system)
-- [ ] Keep styles minimal: readable typography and code blocks
-- [ ] No new pages beyond those already allowed
+- [x] Use existing Tailwind approach only (no new theme system)
+- [x] Keep styles minimal: readable typography and code blocks
+- [x] No new pages beyond those already allowed
 
 **Done when**: Post content is readable and code blocks look polished.
 
@@ -137,19 +137,19 @@ Update `/posts/[slug]`:
 
 Commands:
 
-- [ ] `npm run format:check`
-- [ ] `npm run lint`
-- [ ] `npm run build`
-- [ ] `npm run dev`
+- [x] `npm run format:check`
+- [x] `npm run lint`
+- [x] `npm run build`
+- [x] `npm run dev`
 
 Manual checks:
 
-- [ ] Home lists MDX posts with title/date/description/tags
-- [ ] Clicking a post opens `/posts/[slug]`
-- [ ] Post renders headings/links/lists/blockquote
-- [ ] Post renders at least one syntax highlighted code block
-- [ ] Code block title/filename displays (if configured)
-- [ ] Line highlights display (if configured)
+- [x] Home lists MDX posts with title/date/description/tags
+- [x] Clicking a post opens `/posts/[slug]`
+- [x] Post renders headings/links/lists/blockquote
+- [x] Post renders at least one syntax highlighted code block
+- [x] Code block title/filename displays (if configured)
+- [x] Line highlights display (if configured)
 
 ---
 
