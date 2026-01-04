@@ -21,37 +21,42 @@ export default async function RootLayout({
   return (
     <html lang="en" className="bg-background text-foreground">
       <body className="bg-background text-foreground min-h-dvh">
-        <header className="border-accent-subtle border-b">
-          <nav className="mx-auto flex max-w-3xl items-center justify-between px-4 py-4">
-            <Link href="/" className="font-semibold">
-              Career Blog
-            </Link>
-            <div className="flex items-center gap-4 text-sm">
-              <Link href="/about" className="text-foreground-secondary hover:text-foreground">
-                About
+        <div className="max-w-page mx-auto">
+          <header className="border-accent-subtle border-b">
+            <nav className="max-w-content mx-auto flex items-center justify-between px-6 py-4">
+              <Link href="/" className="font-semibold">
+                Career Blog
               </Link>
-              <Link href="/newsletter" className="text-foreground-secondary hover:text-foreground">
-                Newsletter
-              </Link>
-              {session?.user ? (
-                <div className="flex items-center gap-3">
-                  <span className="text-foreground-secondary">
-                    Signed in as {session.user.name ?? session.user.email}
-                  </span>
-                  <SignOutButton />
-                </div>
-              ) : (
+              <div className="flex items-center gap-6 text-sm">
+                <Link href="/about" className="text-foreground-secondary hover:text-foreground">
+                  About
+                </Link>
                 <Link
-                  href="/auth/sign-in"
+                  href="/newsletter"
                   className="text-foreground-secondary hover:text-foreground"
                 >
-                  Sign in
+                  Newsletter
                 </Link>
-              )}
-            </div>
-          </nav>
-        </header>
-        <main className="mx-auto max-w-3xl px-4 py-8">{children}</main>
+                {session?.user ? (
+                  <div className="flex items-center gap-3">
+                    <span className="text-foreground-secondary">
+                      Signed in as {session.user.name ?? session.user.email}
+                    </span>
+                    <SignOutButton />
+                  </div>
+                ) : (
+                  <Link
+                    href="/auth/sign-in"
+                    className="text-foreground-secondary hover:text-foreground"
+                  >
+                    Sign in
+                  </Link>
+                )}
+              </div>
+            </nav>
+          </header>
+          <main className="max-w-content mx-auto px-6 py-12">{children}</main>
+        </div>
       </body>
     </html>
   );

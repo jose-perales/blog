@@ -36,7 +36,7 @@ export default function SignInPage() {
     <div className="space-y-6">
       <header className="space-y-2">
         <h1 className="text-3xl font-semibold tracking-tight">Sign in</h1>
-        <p className="text-slate-600">
+        <p className="text-foreground-secondary">
           Don&apos;t have an account?{" "}
           <Link href="/auth/sign-up" className="underline">
             Sign up
@@ -46,19 +46,19 @@ export default function SignInPage() {
       </header>
 
       {signedUp ? (
-        <p className="rounded-md border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-900">
+        <p className="border-accent-subtle bg-background-elevated text-foreground rounded-md border px-3 py-2 text-sm">
           Account created. Please sign in.
         </p>
       ) : null}
 
       {error ? (
-        <p className="rounded-md border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-900">
+        <p className="border-error/30 bg-error/10 text-error rounded-md border px-3 py-2 text-sm">
           Sign in failed. Check your email and password.
         </p>
       ) : null}
 
       {localError ? (
-        <p className="rounded-md border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-900">
+        <p className="border-error/30 bg-error/10 text-error rounded-md border px-3 py-2 text-sm">
           Sign in failed. Check your email and password.
         </p>
       ) : null}
@@ -74,7 +74,7 @@ export default function SignInPage() {
             type="email"
             required
             defaultValue={emailPrefill}
-            className="w-full rounded-md border border-slate-300 px-3 py-2 text-sm"
+            className="border-accent-subtle bg-background-elevated text-foreground w-full rounded-md border px-3 py-2 text-sm"
           />
         </div>
 
@@ -87,14 +87,14 @@ export default function SignInPage() {
             name="password"
             type="password"
             required
-            className="w-full rounded-md border border-slate-300 px-3 py-2 text-sm"
+            className="border-accent-subtle bg-background-elevated text-foreground w-full rounded-md border px-3 py-2 text-sm"
           />
         </div>
 
         <button
           type="submit"
           disabled={pending}
-          className="rounded-md bg-slate-900 px-3 py-2 text-sm font-medium text-white"
+          className="bg-foreground text-background rounded-md px-3 py-2 text-sm font-medium"
         >
           Sign in
         </button>

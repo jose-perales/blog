@@ -69,20 +69,24 @@ export function NewsletterForm({ initialEmail = "" }: NewsletterFormProps) {
         required
         value={email}
         onChange={(e) => setEmail(e.target.value)}
-        className="w-full rounded-md border border-slate-300 px-3 py-2 text-sm"
+        className="border-accent-subtle bg-background-elevated text-foreground placeholder:text-foreground-muted w-full rounded-md border px-3 py-2 text-sm"
         placeholder="you@example.com"
         disabled={isPending || status === "success"}
       />
       <button
         type="submit"
-        className="rounded-md bg-slate-900 px-3 py-2 text-sm font-medium text-white disabled:opacity-60"
+        className="bg-foreground text-background rounded-md px-3 py-2 text-sm font-medium disabled:opacity-60"
         disabled={isPending || status === "success"}
       >
         Sign up
       </button>
 
       {message ? (
-        <div className={status === "error" ? "text-sm text-red-600" : "text-sm text-slate-700"}>
+        <div
+          className={
+            status === "error" ? "text-error text-sm" : "text-foreground-secondary text-sm"
+          }
+        >
           {message}
         </div>
       ) : null}

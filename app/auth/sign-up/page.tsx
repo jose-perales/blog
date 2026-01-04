@@ -45,7 +45,7 @@ export default function SignUpPage() {
     <div className="space-y-6">
       <header className="space-y-2">
         <h1 className="text-3xl font-semibold tracking-tight">Sign up</h1>
-        <p className="text-slate-600">
+        <p className="text-foreground-secondary">
           Already have an account?{" "}
           <Link href="/auth/sign-in" className="underline">
             Sign in
@@ -55,7 +55,7 @@ export default function SignUpPage() {
       </header>
 
       {error ? (
-        <p className="rounded-md border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-900">
+        <p className="border-error/30 bg-error/10 text-error rounded-md border px-3 py-2 text-sm">
           {error === "exists"
             ? "An account with that email already exists."
             : error === "invalid"
@@ -74,7 +74,7 @@ export default function SignUpPage() {
             name="displayName"
             type="text"
             required
-            className="w-full rounded-md border border-slate-300 px-3 py-2 text-sm"
+            className="border-accent-subtle bg-background-elevated text-foreground w-full rounded-md border px-3 py-2 text-sm"
           />
         </div>
 
@@ -87,7 +87,7 @@ export default function SignUpPage() {
             name="email"
             type="email"
             required
-            className="w-full rounded-md border border-slate-300 px-3 py-2 text-sm"
+            className="border-accent-subtle bg-background-elevated text-foreground w-full rounded-md border px-3 py-2 text-sm"
           />
         </div>
 
@@ -101,14 +101,14 @@ export default function SignUpPage() {
             type="password"
             minLength={8}
             required
-            className="w-full rounded-md border border-slate-300 px-3 py-2 text-sm"
+            className="border-accent-subtle bg-background-elevated text-foreground w-full rounded-md border px-3 py-2 text-sm"
           />
         </div>
 
         <button
           type="submit"
           disabled={pending}
-          className="rounded-md bg-slate-900 px-3 py-2 text-sm font-medium text-white"
+          className="bg-foreground text-background rounded-md px-3 py-2 text-sm font-medium"
         >
           Create account
         </button>

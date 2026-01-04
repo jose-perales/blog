@@ -1,70 +1,61 @@
 import { describe, it, expect } from "vitest";
-import config from "../../../tailwind.config";
+import fs from "fs";
+import path from "path";
 
-describe("Tailwind Config - Design Tokens", () => {
+// Tailwind v4 uses CSS-first configuration via @theme in globals.css
+// We test the CSS file directly
+
+describe("Design Tokens (CSS @theme)", () => {
+  const cssPath = path.join(process.cwd(), "app/globals.css");
+  const cssContent = fs.readFileSync(cssPath, "utf-8");
+
   describe("Color Palette", () => {
     it("defines background colors", () => {
-      const colors = config.theme?.extend?.colors as Record<string, unknown>;
-      expect(colors).toBeDefined();
-
-      const background = colors.background as Record<string, string>;
-      expect(background.DEFAULT).toBe("#0a0a0a");
-      expect(background.elevated).toBe("#141414");
-      expect(background.subtle).toBe("#1a1a1a");
+      expect(cssContent).toContain("--color-background: #0a0a0a");
+      expect(cssContent).toContain("--color-background-elevated: #141414");
+      expect(cssContent).toContain("--color-background-subtle: #1a1a1a");
     });
 
     it("defines foreground colors", () => {
-      const colors = config.theme?.extend?.colors as Record<string, unknown>;
-      const foreground = colors.foreground as Record<string, string>;
-      expect(foreground.DEFAULT).toBe("#e5e5e5");
-      expect(foreground.secondary).toBe("#a3a3a3");
-      expect(foreground.muted).toBe("#525252");
+      expect(cssContent).toContain("--color-foreground: #e5e5e5");
+      expect(cssContent).toContain("--color-foreground-secondary: #a3a3a3");
+      expect(cssContent).toContain("--color-foreground-muted: #525252");
     });
 
     it("defines accent colors", () => {
-      const colors = config.theme?.extend?.colors as Record<string, unknown>;
-      const accent = colors.accent as Record<string, string>;
-      expect(accent.DEFAULT).toBe("#d4d4d4");
-      expect(accent.hover).toBe("#fafafa");
-      expect(accent.subtle).toBe("#404040");
+      expect(cssContent).toContain("--color-accent: #d4d4d4");
+      expect(cssContent).toContain("--color-accent-hover: #fafafa");
+      expect(cssContent).toContain("--color-accent-subtle: #404040");
     });
 
     it("defines code colors", () => {
-      const colors = config.theme?.extend?.colors as Record<string, unknown>;
-      const code = colors.code as Record<string, string>;
-      expect(code.bg).toBe("#0d0d0d");
-      expect(code.fg).toBe("#c9d1d9");
+      expect(cssContent).toContain("--color-code-bg: #0d0d0d");
+      expect(cssContent).toContain("--color-code-fg: #c9d1d9");
     });
 
     it("defines semantic colors", () => {
-      const colors = config.theme?.extend?.colors as Record<string, unknown>;
-      expect(colors.success).toBe("#4ade80");
-      expect(colors.error).toBe("#f87171");
+      expect(cssContent).toContain("--color-success: #4ade80");
+      expect(cssContent).toContain("--color-error: #f87171");
     });
   });
 
   describe("Spacing Scale", () => {
     it("extends spacing with additional values", () => {
-      const spacing = config.theme?.extend?.spacing as Record<string, string>;
-      expect(spacing).toBeDefined();
-      expect(spacing["18"]).toBe("4.5rem");
-      expect(spacing["22"]).toBe("5.5rem");
-      expect(spacing["30"]).toBe("7.5rem");
+      expect(cssContent).toContain("--spacing-18: 4.5rem");
+      expect(cssContent).toContain("--spacing-22: 5.5rem");
+      expect(cssContent).toContain("--spacing-30: 7.5rem");
     });
   });
 
   describe("Font Families", () => {
     it("defines sans-serif font stack", () => {
-      const fontFamily = config.theme?.extend?.fontFamily as Record<string, string[]>;
-      expect(fontFamily).toBeDefined();
-      expect(fontFamily.sans).toContain("Inter");
-      expect(fontFamily.sans).toContain("system-ui");
+      expect(cssContent).toMatch(/--font-sans:.*Inter/);
+      expect(cssContent).toMatch(/--font-sans:.*system-ui/);
     });
 
     it("defines monospace font stack", () => {
-      const fontFamily = config.theme?.extend?.fontFamily as Record<string, string[]>;
-      expect(fontFamily.mono).toContain("JetBrains Mono");
-      expect(fontFamily.mono).toContain("monospace");
+      expect(cssContent).toMatch(/--font-mono:.*JetBrains Mono/);
+      expect(cssContent).toMatch(/--font-mono:.*monospace/);
     });
   });
 });

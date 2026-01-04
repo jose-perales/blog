@@ -82,8 +82,8 @@ export default async function PostPage({ params }: PageProps) {
     <article className="space-y-8">
       <header className="space-y-2">
         <h1 className="text-3xl font-semibold tracking-tight">{post.frontmatter.title}</h1>
-        <div className="text-sm text-slate-500">{post.frontmatter.date}</div>
-        <p className="text-slate-600">{post.frontmatter.description}</p>
+        <div className="text-foreground-muted text-sm">{post.frontmatter.date}</div>
+        <p className="text-foreground-secondary">{post.frontmatter.description}</p>
       </header>
 
       <div className="mdx">
