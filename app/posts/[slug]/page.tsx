@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 const prettyCodeOptions: RehypePrettyCodeOptions = {
-  theme: "github-dark",
+  theme: "github-dark-dimmed",
   keepBackground: false,
   onVisitLine(node) {
     if (node.children.length === 0) {

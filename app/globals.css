@@ -81,7 +81,7 @@ body {
 }
 
 .mdx {
-  @apply mx-auto max-w-[42rem] space-y-6;
+  @apply mx-auto max-w-2xl space-y-6;
 }
 
 .mdx h1 {
@@ -132,29 +132,44 @@ body {
   @apply bg-code-bg text-code-fg rounded px-1.5 py-0.5 font-mono text-sm;
 }
 
+/* Outside of MDX context */
+code:not([data-language]):not(.mdx code) {
+  @apply bg-code-bg text-code-fg rounded px-1.5 py-0.5 font-mono text-sm;
+}
+
 /* rehype-pretty-code */
 .mdx figure[data-rehype-pretty-code-figure] {
   @apply bg-code-bg my-8 overflow-hidden rounded-lg;
 }
 
-.mdx figcaption[data-rehype-pretty-code-title] {
+.mdx figure[data-rehype-pretty-code-figure] pre {
+  @apply overflow-x-auto p-6 text-sm leading-relaxed;
+  background-color: transparent !important;
+}
+
+.mdx figure[data-rehype-pretty-code-figure] code {
+  @apply font-mono;
+  font-size: 0.875rem;
+  line-height: 1.7;
+}
+
+/* Code block title/filename */
+.mdx figure[data-rehype-pretty-code-figure] figcaption {
   @apply border-accent-subtle bg-background-elevated text-foreground-muted border-b px-6 py-3 font-mono text-xs;
 }
 
-.mdx pre {
-  @apply overflow-x-auto px-6 py-4 text-sm leading-relaxed;
+/* Line highlighting */
+.mdx figure[data-rehype-pretty-code-figure] [data-highlighted-line] {
+  @apply bg-background-subtle -mx-6 px-6;
 }
 
-.mdx code {
-  @apply font-mono;
-}
-
+/* Back-compat with earlier class-based highlighting */
 .mdx .line--highlighted {
-  @apply block bg-white/10;
+  @apply bg-background-subtle -mx-6 px-6;
 }
 
 .mdx .word--highlighted {
-  @apply rounded bg-white/15 px-1;
+  @apply bg-background-subtle rounded px-1;
 }
 
 /* ==========================================================================
