@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import { auth } from "@/auth";
+import SignOutButton from "./sign-out-button";
+
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -8,11 +11,13 @@ export const metadata: Metadata = {
   description: "A local-first career blog.",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const session = await auth();
+
   return (
     <html lang="en">
       <body className="min-h-dvh bg-white text-slate-900">
@@ -28,9 +33,18 @@ export default function RootLayout({
               <Link href="/newsletter" className="hover:underline">
                 Newsletter
               </Link>
-              <Link href="/auth/sign-in" className="hover:underline">
-                Sign in
-              </Link>
+              {session?.user ? (
+                <div className="flex items-center gap-3">
+                  <span className="text-slate-600">
+                    Signed in as {session.user.name ?? session.user.email}
+                  </span>
+                  <SignOutButton />
+                </div>
+              ) : (
+                <Link href="/auth/sign-in" className="hover:underline">
+                  Sign in
+                </Link>
+              )}
             </div>
           </nav>
         </header>
