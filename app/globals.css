@@ -132,6 +132,10 @@ a:focus-visible {
 
 .mdx a {
   @apply text-accent hover:text-accent-hover underline underline-offset-4;
+
+  transition-property: color;
+  transition-duration: 150ms;
+  transition-timing-function: ease;
 }
 
 .mdx ul {

@@ -34,4 +34,11 @@ describe("Accessibility - focus states", () => {
   it("defines a focus-visible treatment for links", () => {
     expect(globalsCss).toMatch(/a:focus-visible/);
   });
+
+  it("standardizes MDX link hover transitions to 150ms ease", () => {
+    const mdxLinkBlock = globalsCss.match(/\.mdx\s+a\s*\{[^}]*\}/s)?.[0] ?? "";
+
+    expect(mdxLinkBlock).toContain("transition-duration: 150ms");
+    expect(mdxLinkBlock).toContain("transition-timing-function: ease");
+  });
 });
