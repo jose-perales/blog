@@ -19,29 +19,32 @@ export default async function RootLayout({
   const session = await auth();
 
   return (
-    <html lang="en">
-      <body className="min-h-dvh bg-white text-slate-900">
-        <header className="border-b border-slate-200">
+    <html lang="en" className="bg-background text-foreground">
+      <body className="bg-background text-foreground min-h-dvh">
+        <header className="border-accent-subtle border-b">
           <nav className="mx-auto flex max-w-3xl items-center justify-between px-4 py-4">
             <Link href="/" className="font-semibold">
               Career Blog
             </Link>
             <div className="flex items-center gap-4 text-sm">
-              <Link href="/about" className="hover:underline">
+              <Link href="/about" className="text-foreground-secondary hover:text-foreground">
                 About
               </Link>
-              <Link href="/newsletter" className="hover:underline">
+              <Link href="/newsletter" className="text-foreground-secondary hover:text-foreground">
                 Newsletter
               </Link>
               {session?.user ? (
                 <div className="flex items-center gap-3">
-                  <span className="text-slate-600">
+                  <span className="text-foreground-secondary">
                     Signed in as {session.user.name ?? session.user.email}
                   </span>
                   <SignOutButton />
                 </div>
               ) : (
-                <Link href="/auth/sign-in" className="hover:underline">
+                <Link
+                  href="/auth/sign-in"
+                  className="text-foreground-secondary hover:text-foreground"
+                >
                   Sign in
                 </Link>
               )}

@@ -4,8 +4,18 @@
 
 - Use Next.js App Router + React + TypeScript (`strict`).
 - Use Tailwind CSS for styling.
+- Follow the design system defined in `docs/design-system.md`.
 - Implement **only** the UX described in `.github/prompts/PLANNING_PROMPT.md` (no extra pages/features).
 - Keep changes minimal and consistent with existing code.
+
+## Design system
+
+- Reference `docs/design-system.md` for all visual decisions.
+- Use the defined color palette (dark-first, near-black backgrounds).
+- Follow the typography scale (1.25 ratio, 18px base).
+- Respect spacing system (4px base unit).
+- No decorative elements without function.
+- Transitions: 150ms ease for state changes only.
 
 ## Milestone discipline
 
