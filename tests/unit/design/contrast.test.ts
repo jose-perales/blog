@@ -48,6 +48,7 @@ describe("Accessibility - color contrast", () => {
   const bg = readRootVar(css, "--bg-primary");
   const fgPrimary = readRootVar(css, "--fg-primary");
   const fgSecondary = readRootVar(css, "--fg-secondary");
+  const accentPrimary = readRootVar(css, "--accent-primary");
   const accentHover = readRootVar(css, "--accent-hover");
   const fgMuted = readRootVar(css, "--fg-muted");
 
@@ -59,8 +60,16 @@ describe("Accessibility - color contrast", () => {
     expect(contrastRatio(fgSecondary, bg)).toBeGreaterThanOrEqual(4.5);
   });
 
+  it("link default color remains readable against background (>= 4.5:1)", () => {
+    expect(contrastRatio(accentPrimary, bg)).toBeGreaterThanOrEqual(4.5);
+  });
+
   it("link hover color remains readable against background (>= 4.5:1)", () => {
     expect(contrastRatio(accentHover, bg)).toBeGreaterThanOrEqual(4.5);
+  });
+
+  it("focus outline color is clearly visible against background (>= 3:1)", () => {
+    expect(contrastRatio(accentPrimary, bg)).toBeGreaterThanOrEqual(3);
   });
 
   it("muted text is intended for non-essential UI (>= 2.5:1)", () => {
