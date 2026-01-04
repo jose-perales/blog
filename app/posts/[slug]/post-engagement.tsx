@@ -132,15 +132,15 @@ export function PostEngagement(props: PostEngagementProps) {
   }
 
   return (
-    <section className="space-y-6 rounded-lg border border-slate-200 p-4">
+    <section className="border-accent-subtle space-y-6 rounded-lg border p-4">
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-        <div className="text-sm text-slate-600">
-          <span className="font-medium text-slate-900">{viewCount}</span> views
+        <div className="text-foreground-secondary text-sm">
+          <span className="text-foreground font-medium">{viewCount}</span> views
         </div>
 
         <div className="flex items-center gap-3">
-          <div className="text-sm text-slate-600">
-            <span className="font-medium text-slate-900">{likeCount}</span> likes
+          <div className="text-foreground-secondary text-sm">
+            <span className="text-foreground font-medium">{likeCount}</span> likes
           </div>
 
           {props.isAuthenticated ? (
@@ -148,14 +148,14 @@ export function PostEngagement(props: PostEngagementProps) {
               type="button"
               onClick={onToggleLike}
               disabled={isPending}
-              className="rounded-md border border-slate-200 px-3 py-1.5 text-sm text-slate-900 hover:bg-slate-50 disabled:opacity-60"
+              className="border-accent-subtle text-foreground hover:bg-background-subtle rounded-md border px-3 py-1.5 text-sm disabled:opacity-60"
             >
               {likedByMe ? "Unlike" : "Like"}
             </button>
           ) : (
             <Link
               href={signInHref}
-              className="rounded-md border border-slate-200 px-3 py-1.5 text-sm text-slate-900 hover:bg-slate-50"
+              className="border-accent-subtle text-foreground hover:bg-background-subtle rounded-md border px-3 py-1.5 text-sm"
             >
               Sign in to like
             </Link>
@@ -164,10 +164,10 @@ export function PostEngagement(props: PostEngagementProps) {
       </div>
 
       <div className="space-y-3">
-        <h2 className="text-base font-semibold text-slate-900">Comments</h2>
+        <h2 className="text-foreground text-base font-semibold">Comments</h2>
 
         {!props.isAuthenticated ? (
-          <div className="text-sm text-slate-600">
+          <div className="text-foreground-secondary text-sm">
             <Link href={signInHref} className="underline">
               Sign in
             </Link>{" "}
@@ -179,16 +179,16 @@ export function PostEngagement(props: PostEngagementProps) {
               value={commentBody}
               onChange={(e) => setCommentBody(e.target.value)}
               rows={3}
-              className="w-full rounded-md border border-slate-200 p-2 text-sm text-slate-900"
+              className="border-accent-subtle bg-background-elevated text-foreground placeholder:text-foreground-muted w-full rounded-md border p-2 text-sm"
               placeholder="Write a comment…"
               disabled={isPending}
             />
             <div className="flex items-center justify-between">
-              <div className="text-xs text-slate-500">Max 5000 characters.</div>
+              <div className="text-foreground-muted text-xs">Max 5000 characters.</div>
               <button
                 type="submit"
                 disabled={isPending}
-                className="rounded-md bg-slate-900 px-3 py-1.5 text-sm font-medium text-white disabled:opacity-60"
+                className="bg-foreground text-background rounded-md px-3 py-1.5 text-sm font-medium disabled:opacity-60"
               >
                 Post comment
               </button>
@@ -196,21 +196,26 @@ export function PostEngagement(props: PostEngagementProps) {
           </form>
         )}
 
-        {error ? <div className="text-sm text-red-600">{error}</div> : null}
+        {error ? <div className="text-error text-sm">{error}</div> : null}
 
         {comments.length === 0 ? (
-          <div className="text-sm text-slate-600">No comments yet.</div>
+          <div className="text-foreground-secondary text-sm">No comments yet.</div>
         ) : (
           <ul className="space-y-3">
             {comments.map((comment) => (
-              <li key={comment.id} className="rounded-md border border-slate-200 p-3">
+              <li
+                key={comment.id}
+                className="border-accent-subtle bg-background-elevated rounded-md border p-3"
+              >
                 <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
-                  <div className="text-sm font-medium text-slate-900">{comment.author.name}</div>
-                  <div className="text-xs text-slate-500" suppressHydrationWarning>
+                  <div className="text-foreground text-sm font-medium">{comment.author.name}</div>
+                  <div className="text-foreground-muted text-xs" suppressHydrationWarning>
                     {formatDate(comment.createdAt)}
                   </div>
                 </div>
-                <p className="mt-2 text-sm whitespace-pre-wrap text-slate-700">{comment.body}</p>
+                <p className="text-foreground-secondary mt-2 text-sm whitespace-pre-wrap">
+                  {comment.body}
+                </p>
               </li>
             ))}
           </ul>

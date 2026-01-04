@@ -240,6 +240,21 @@ a:hover {
 
 ---
 
+## 7.5) Add design system ESLint rule (bonus)
+
+Prevent raw Tailwind color classes that bypass the design system.
+
+- [ ] Create `eslint-rules/no-raw-tailwind-colors.js`
+- [ ] Configure in `eslint.config.mjs` as `design-system/no-raw-tailwind-colors`
+- [ ] Disallow all default Tailwind color scales (slate, gray, red, blue, etc.)
+- [ ] Allow only design system tokens (text-foreground, bg-background, etc.)
+- [ ] Fix any existing violations in components
+- [ ] Verify `npm run lint` passes
+
+**Done when**: Lint catches any future raw color usage.
+
+---
+
 ## 8) Commit checkpoint
 
 - [ ] `git add -A`
@@ -258,4 +273,6 @@ a:hover {
 - [ ] Vertical rhythm feels consistent
 - [ ] MDX posts render beautifully
 - [ ] Mobile responsive (no horizontal scroll)
+- [ ] All components use design system color tokens
+- [ ] ESLint rule blocks raw Tailwind colors
 - [ ] All tests pass

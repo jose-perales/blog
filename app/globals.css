@@ -1,5 +1,61 @@
 @import "tailwindcss";
 
+@theme {
+  /* Colors */
+  --color-background: #0a0a0a;
+  --color-background-elevated: #141414;
+  --color-background-subtle: #1a1a1a;
+
+  --color-foreground: #e5e5e5;
+  --color-foreground-secondary: #a3a3a3;
+  --color-foreground-muted: #525252;
+
+  --color-accent: #d4d4d4;
+  --color-accent-hover: #fafafa;
+  --color-accent-subtle: #404040;
+
+  --color-code-bg: #0d0d0d;
+  --color-code-fg: #c9d1d9;
+
+  --color-success: #4ade80;
+  --color-error: #f87171;
+
+  /* Spacing */
+  --spacing-18: 4.5rem;
+  --spacing-22: 5.5rem;
+  --spacing-30: 7.5rem;
+
+  /* Font families */
+  --font-sans: "Inter", "SF Pro Text", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", "SF Mono", monospace;
+
+  /* Font sizes with line heights */
+  --text-xs: 0.75rem;
+  --text-xs--line-height: 1rem;
+  --text-sm: 0.875rem;
+  --text-sm--line-height: 1.25rem;
+  --text-base: 1.125rem;
+  --text-base--line-height: 1.9125rem;
+  --text-lg: 1.25rem;
+  --text-lg--line-height: 1.75rem;
+  --text-xl: 1.5rem;
+  --text-xl--line-height: 2rem;
+  --text-2xl: 1.875rem;
+  --text-2xl--line-height: 2.4375rem;
+  --text-3xl: 2.25rem;
+  --text-3xl--line-height: 2.925rem;
+  --text-4xl: 3rem;
+  --text-4xl--line-height: 3.9rem;
+
+  /* Letter spacing */
+  --tracking-tighter: -0.02em;
+
+  /* Max widths */
+  --width-content: 42rem;
+  --width-wide: 56rem;
+  --width-page: 72rem;
+}
+
 :root {
   --bg-primary: #0a0a0a;
   --bg-elevated: #141414;
@@ -25,52 +81,68 @@ body {
 }
 
 .mdx {
-  @apply space-y-4;
+  @apply mx-auto max-w-[42rem] space-y-6;
 }
 
 .mdx h1 {
-  @apply text-3xl font-semibold tracking-tight;
+  @apply text-foreground text-4xl font-semibold tracking-tighter;
 }
 
 .mdx h2 {
-  @apply mt-8 text-2xl font-semibold tracking-tight;
+  @apply text-foreground mt-12 mb-4 text-3xl font-semibold tracking-tighter;
 }
 
 .mdx h3 {
-  @apply mt-6 text-xl font-semibold tracking-tight;
+  @apply text-foreground mt-8 mb-3 text-2xl font-semibold tracking-tight;
+}
+
+.mdx h4 {
+  @apply text-foreground mt-6 mb-2 text-xl font-semibold;
 }
 
 .mdx p {
-  @apply leading-7 text-slate-800;
+  @apply text-foreground-secondary text-base leading-relaxed;
 }
 
 .mdx a {
-  @apply underline underline-offset-4;
+  @apply text-accent hover:text-accent-hover underline underline-offset-4;
 }
 
 .mdx ul {
-  @apply list-disc space-y-1 pl-6;
+  @apply text-foreground-secondary list-disc space-y-2 pl-6;
 }
 
 .mdx ol {
-  @apply list-decimal space-y-1 pl-6;
+  @apply text-foreground-secondary list-decimal space-y-2 pl-6;
+}
+
+.mdx li {
+  @apply pl-2;
 }
 
 .mdx blockquote {
-  @apply border-l-2 border-slate-300 pl-4 text-slate-700;
+  @apply border-accent-subtle text-foreground-secondary border-l-2 pl-6 italic;
+}
+
+.mdx strong {
+  @apply text-foreground font-semibold;
+}
+
+.mdx code:not([data-language]) {
+  @apply bg-code-bg text-code-fg rounded px-1.5 py-0.5 font-mono text-sm;
 }
 
 /* rehype-pretty-code */
 .mdx figure[data-rehype-pretty-code-figure] {
-  @apply my-6 overflow-hidden rounded-lg border border-slate-200;
+  @apply bg-code-bg my-8 overflow-hidden rounded-lg;
 }
 
 .mdx figcaption[data-rehype-pretty-code-title] {
-  @apply border-b border-slate-200 bg-slate-50 px-4 py-2 font-mono text-xs text-slate-700;
+  @apply border-accent-subtle bg-background-elevated text-foreground-muted border-b px-6 py-3 font-mono text-xs;
 }
 
 .mdx pre {
-  @apply overflow-x-auto bg-slate-950 px-4 py-3 text-sm leading-6;
+  @apply overflow-x-auto px-6 py-4 text-sm leading-relaxed;
 }
 
 .mdx code {

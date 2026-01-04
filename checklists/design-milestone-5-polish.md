@@ -7,6 +7,7 @@ Use this checklist to implement Design Milestone 5 only.
 - Focus states (visible, not obtrusive)
 - Hover transitions (150ms ease)
 - Reduced motion support (`prefers-reduced-motion`)
+- **Visual regression testing (Playwright screenshots)**
 - Light mode support (optional, if time permits)
 - Final visual QA
 - Accessibility audit
@@ -95,6 +96,74 @@ Use this checklist to implement Design Milestone 5 only.
 - [ ] No bounce, wiggle, or pulse animations
 
 **Done when**: Transitions are consistent and subtle.
+
+---
+
+## 2.5) Visual regression testing setup
+
+Visual regression tests catch unintended styling changes by comparing screenshots.
+
+### 2.5.1) Configure Playwright for screenshots
+
+- [ ] Enable screenshot comparisons in `playwright.config.ts`:
+
+```ts
+expect: {
+  toHaveScreenshot: {
+    maxDiffPixels: 100,  // Allow minor anti-aliasing differences
+    animations: 'disabled',  // Ensure consistent captures
+  },
+},
+```
+
+### 2.5.2) Create visual regression test suite
+
+- [ ] Create `tests/e2e/visual-regression.spec.ts`:
+
+```ts
+import { test, expect } from "@playwright/test";
+
+test.describe("visual regression", () => {
+  test("home page", async ({ page }) => {
+    await page.goto("/");
+    await expect(page).toHaveScreenshot("home.png", { fullPage: true });
+  });
+
+  test("post page", async ({ page }) => {
+    await page.goto("/posts/hello-world");
+    await expect(page).toHaveScreenshot("post.png", { fullPage: true });
+  });
+
+  test("newsletter page", async ({ page }) => {
+    await page.goto("/newsletter");
+    await expect(page).toHaveScreenshot("newsletter.png", { fullPage: true });
+  });
+
+  test("sign-in page", async ({ page }) => {
+    await page.goto("/auth/sign-in");
+    await expect(page).toHaveScreenshot("sign-in.png", { fullPage: true });
+  });
+
+  test("about page", async ({ page }) => {
+    await page.goto("/about");
+    await expect(page).toHaveScreenshot("about.png", { fullPage: true });
+  });
+});
+```
+
+### 2.5.3) Generate baseline screenshots
+
+- [ ] Run `npx playwright test visual-regression --update-snapshots` to create baselines
+- [ ] Commit baseline screenshots to `tests/e2e/visual-regression.spec.ts-snapshots/`
+- [ ] Document: baselines must be regenerated after intentional design changes
+
+### 2.5.4) CI integration
+
+- [ ] Ensure Playwright runs visual regression tests in CI
+- [ ] Consider using consistent viewport sizes (e.g., 1280x720)
+- [ ] Note: may need Docker for consistent font rendering across environments
+
+**Done when**: Screenshot tests catch unintended visual changes.
 
 ---
 
