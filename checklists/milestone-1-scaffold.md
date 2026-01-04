@@ -67,10 +67,10 @@ Use this as a working checklist to implement Milestone 1 only.
   - `prettier`
   - `prettier-plugin-tailwindcss`
   - `eslint-config-prettier`
-- [ ] Add config files:
+- [x] Add config files:
   - [x] `.prettierrc` (or `prettier.config.*`)
   - [x] `.prettierignore`
-- [ ] Ensure ESLint and Prettier don’t fight (extend `eslint-config-prettier`)
+- [x] Ensure ESLint and Prettier don’t fight (extend `eslint-config-prettier`)
 - [x] Add scripts in `package.json`:
   - [x] `format`: `prettier --write .`
   - [x] `format:check`: `prettier --check .`
@@ -98,10 +98,10 @@ Create page shells that match the future UX, but don’t implement data yet.
 - [x] Home: `/` (list placeholder)
 - [x] About: `/about` (simple content)
 - [x] Newsletter: `/newsletter` (email input + submit button; no DB yet)
-- [ ] Auth:
+- [x] Auth:
   - [x] Sign in: `/auth/sign-in` (email + password; no real auth yet)
   - [x] Sign up: `/auth/sign-up` (email + password + display name; no real auth yet)
-- [ ] Post page route placeholder:
+- [x] Post page route placeholder:
   - [x] `/posts/[slug]` (render slug and placeholder for future MDX + counts)
 
 ### Shared layout
@@ -140,8 +140,8 @@ Manual checks:
 - [x] `/about` renders
 - [x] `/newsletter` renders
 - [x] `/auth/sign-in` renders
-- [ ] `/auth/sign-up` renders
-- [ ] `/posts/test-slug` renders
+- [x] `/auth/sign-up` renders
+- [x] `/posts/test-slug` renders
 
 ---
 

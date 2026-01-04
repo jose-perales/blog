@@ -12,8 +12,8 @@ Use this checklist to implement Design Milestone 2 only.
 
 ## Prerequisites
 
-- [ ] Design Milestone 1 complete and committed
-- [ ] Dark theme displaying correctly
+- [x] Design Milestone 1 complete and committed
+- [x] Dark theme displaying correctly
 
 ---
 
@@ -21,21 +21,21 @@ Use this checklist to implement Design Milestone 2 only.
 
 ### 0.1) Typography scale tests
 
-- [ ] Create or update `tests/unit/design/typography.test.ts`
-- [ ] Test that Tailwind config has correct font sizes
-- [ ] Test that line heights match spec
+- [x] Create or update `tests/unit/design/typography.test.ts`
+- [x] Test that Tailwind config has correct font sizes
+- [x] Test that line heights match spec
 
 ### 0.2) Layout constraint tests
 
-- [ ] Create `tests/ui/components/layout.test.tsx`
-- [ ] Test that main content area has max-width constraint
-- [ ] Test that content is centered
+- [x] Create `tests/ui/components/layout.test.tsx`
+- [x] Test that main content area has max-width constraint
+- [x] Test that content is centered
 
 ### 0.3) MDX prose tests
 
-- [ ] Update `tests/ui/pages/post-rendering.test.tsx` (if exists)
-- [ ] Test that prose container applies correct max-width
-- [ ] Test that headings use correct hierarchy classes
+- [x] Update `tests/ui/pages/post-rendering.test.tsx` (if exists)
+- [x] Test that prose container applies correct max-width
+- [x] Test that headings use correct hierarchy classes
 
 **Done when**: Tests exist and FAIL.
 
@@ -43,8 +43,8 @@ Use this checklist to implement Design Milestone 2 only.
 
 ## 1) Add typography scale to Tailwind
 
-- [ ] Open `tailwind.config.ts`
-- [ ] Add fontSize scale under `theme.extend.fontSize`:
+- [x] Open `tailwind.config.ts`
+- [x] Add fontSize scale under `theme.extend.fontSize`:
 
 ```typescript
 fontSize: {
@@ -59,7 +59,7 @@ fontSize: {
 }
 ```
 
-- [ ] Add letter spacing for headings:
+- [x] Add letter spacing for headings:
 
 ```typescript
 letterSpacing: {
@@ -73,7 +73,7 @@ letterSpacing: {
 
 ## 2) Add content width tokens
 
-- [ ] Add to `theme.extend.maxWidth`:
+- [x] Add to `theme.extend.maxWidth`:
 
 ```typescript
 maxWidth: {
@@ -89,7 +89,7 @@ maxWidth: {
 
 ## 3) Update base typography in globals.css
 
-- [ ] Update body font settings:
+- [x] Update body font settings:
 
 ```css
 body {
@@ -102,7 +102,7 @@ body {
 }
 ```
 
-- [ ] Add base link styles:
+- [x] Add base link styles:
 
 ```css
 a {
@@ -123,7 +123,7 @@ a:hover {
 
 ## 4) Update MDX prose styles
 
-- [ ] Update `.mdx` class in globals.css:
+- [x] Update `.mdx` class in globals.css:
 
 ```css
 .mdx {
@@ -192,26 +192,26 @@ a:hover {
 
 ### 5.1) Root layout
 
-- [ ] Update `app/layout.tsx`:
+- [x] Update `app/layout.tsx`:
   - Add container with max-width-page
   - Center content
   - Add horizontal padding for mobile
 
 ### 5.2) Home page
 
-- [ ] Update `app/page.tsx`:
+- [x] Update `app/page.tsx`:
   - Use max-w-content for main content
   - Apply vertical spacing (space-y-12 or similar)
 
 ### 5.3) Post page
 
-- [ ] Update `app/posts/[slug]/page.tsx`:
+- [x] Update `app/posts/[slug]/page.tsx`:
   - Ensure prose container uses max-w-content
   - Title uses text-4xl with tracking-tighter
 
 ### 5.4) About page
 
-- [ ] Update `app/about/page.tsx`:
+- [x] Update `app/about/page.tsx`:
   - Apply prose-like styling
   - Consistent with post page typography
 
@@ -221,10 +221,10 @@ a:hover {
 
 ## 6) Run tests (green phase)
 
-- [ ] `npm test` — all tests pass
-- [ ] `npm run lint` — no errors
-- [ ] `npm run build` — builds successfully
-- [ ] Visual inspection at multiple breakpoints
+- [x] `npm test` — all tests pass
+- [x] `npm run lint` — no errors
+- [x] `npm run build` — builds successfully
+- [x] Visual inspection at multiple breakpoints
 
 **Done when**: Tests pass and typography looks correct.
 
@@ -232,9 +232,9 @@ a:hover {
 
 ## 7) Refactor
 
-- [ ] Remove any duplicate or overridden styles
-- [ ] Ensure responsive breakpoints work
-- [ ] Check line lengths are 65-75 characters on desktop
+- [x] Remove any duplicate or overridden styles
+- [x] Ensure responsive breakpoints work
+- [x] Check line lengths are 65-75 characters on desktop
 
 **Done when**: Code is clean, readable, minimal.
 
@@ -244,12 +244,12 @@ a:hover {
 
 Prevent raw Tailwind color classes that bypass the design system.
 
-- [ ] Create `eslint-rules/no-raw-tailwind-colors.js`
-- [ ] Configure in `eslint.config.mjs` as `design-system/no-raw-tailwind-colors`
-- [ ] Disallow all default Tailwind color scales (slate, gray, red, blue, etc.)
-- [ ] Allow only design system tokens (text-foreground, bg-background, etc.)
-- [ ] Fix any existing violations in components
-- [ ] Verify `npm run lint` passes
+- [x] Create `eslint-rules/no-raw-tailwind-colors.js`
+- [x] Configure in `eslint.config.mjs` as `design-system/no-raw-tailwind-colors`
+- [x] Disallow all default Tailwind color scales (slate, gray, red, blue, etc.)
+- [x] Allow only design system tokens (text-foreground, bg-background, etc.)
+- [x] Fix any existing violations in components
+- [x] Verify `npm run lint` passes
 
 **Done when**: Lint catches any future raw color usage.
 
@@ -257,8 +257,8 @@ Prevent raw Tailwind color classes that bypass the design system.
 
 ## 8) Commit checkpoint
 
-- [ ] `git add -A`
-- [ ] `git commit -m "design(m2): typography and layout constraints"`
+- [x] `git add -A`
+- [x] `git commit -m "design(m2): typography and layout constraints"`
 
 **Done when**: Committed and ready for review.
 
@@ -266,13 +266,13 @@ Prevent raw Tailwind color classes that bypass the design system.
 
 ## Verification Checklist
 
-- [ ] Body text is 18px base size
-- [ ] Headings follow 1.25 scale
-- [ ] Line height is 1.7 for body, 1.3 for headings
-- [ ] Content max-width is ~672px
-- [ ] Vertical rhythm feels consistent
-- [ ] MDX posts render beautifully
-- [ ] Mobile responsive (no horizontal scroll)
-- [ ] All components use design system color tokens
-- [ ] ESLint rule blocks raw Tailwind colors
-- [ ] All tests pass
+- [x] Body text is 18px base size
+- [x] Headings follow 1.25 scale
+- [x] Line height is 1.7 for body, 1.3 for headings
+- [x] Content max-width is ~672px
+- [x] Vertical rhythm feels consistent
+- [x] MDX posts render beautifully
+- [x] Mobile responsive (no horizontal scroll)
+- [x] All components use design system color tokens
+- [x] ESLint rule blocks raw Tailwind colors
+- [x] All tests pass
