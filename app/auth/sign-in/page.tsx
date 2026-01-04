@@ -65,7 +65,7 @@ export default function SignInPage() {
 
       <form className="space-y-3" onSubmit={onSubmit}>
         <div className="space-y-1">
-          <label className="block text-sm font-medium" htmlFor="email">
+          <label className="label" htmlFor="email">
             Email
           </label>
           <input
@@ -74,28 +74,18 @@ export default function SignInPage() {
             type="email"
             required
             defaultValue={emailPrefill}
-            className="border-accent-subtle bg-background-elevated text-foreground w-full rounded-md border px-3 py-2 text-sm"
+            className="input"
           />
         </div>
 
         <div className="space-y-1">
-          <label className="block text-sm font-medium" htmlFor="password">
+          <label className="label" htmlFor="password">
             Password
           </label>
-          <input
-            id="password"
-            name="password"
-            type="password"
-            required
-            className="border-accent-subtle bg-background-elevated text-foreground w-full rounded-md border px-3 py-2 text-sm"
-          />
+          <input id="password" name="password" type="password" required className="input" />
         </div>
 
-        <button
-          type="submit"
-          disabled={pending}
-          className="bg-foreground text-background rounded-md px-3 py-2 text-sm font-medium"
-        >
+        <button type="submit" disabled={pending} className="btn btn-solid btn-sm">
           Sign in
         </button>
       </form>

@@ -59,7 +59,7 @@ export function NewsletterForm({ initialEmail = "" }: NewsletterFormProps) {
 
   return (
     <form className="space-y-3" onSubmit={onSubmit}>
-      <label className="block text-sm font-medium" htmlFor="email">
+      <label className="label" htmlFor="email">
         Email
       </label>
       <input
@@ -69,24 +69,20 @@ export function NewsletterForm({ initialEmail = "" }: NewsletterFormProps) {
         required
         value={email}
         onChange={(e) => setEmail(e.target.value)}
-        className="border-accent-subtle bg-background-elevated text-foreground placeholder:text-foreground-muted w-full rounded-md border px-3 py-2 text-sm"
+        className="input"
         placeholder="you@example.com"
         disabled={isPending || status === "success"}
       />
       <button
         type="submit"
-        className="bg-foreground text-background rounded-md px-3 py-2 text-sm font-medium disabled:opacity-60"
+        className="btn btn-solid btn-sm disabled:opacity-60"
         disabled={isPending || status === "success"}
       >
         Sign up
       </button>
 
       {message ? (
-        <div
-          className={
-            status === "error" ? "text-error text-sm" : "text-foreground-secondary text-sm"
-          }
-        >
+        <div className={status === "error" ? "error-message" : "text-foreground-secondary text-sm"}>
           {message}
         </div>
       ) : null}

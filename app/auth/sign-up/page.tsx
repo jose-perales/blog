@@ -66,33 +66,21 @@ export default function SignUpPage() {
 
       <form className="space-y-3" onSubmit={onSubmit}>
         <div className="space-y-1">
-          <label className="block text-sm font-medium" htmlFor="displayName">
+          <label className="label" htmlFor="displayName">
             Display name
           </label>
-          <input
-            id="displayName"
-            name="displayName"
-            type="text"
-            required
-            className="border-accent-subtle bg-background-elevated text-foreground w-full rounded-md border px-3 py-2 text-sm"
-          />
+          <input id="displayName" name="displayName" type="text" required className="input" />
         </div>
 
         <div className="space-y-1">
-          <label className="block text-sm font-medium" htmlFor="email">
+          <label className="label" htmlFor="email">
             Email
           </label>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            required
-            className="border-accent-subtle bg-background-elevated text-foreground w-full rounded-md border px-3 py-2 text-sm"
-          />
+          <input id="email" name="email" type="email" required className="input" />
         </div>
 
         <div className="space-y-1">
-          <label className="block text-sm font-medium" htmlFor="password">
+          <label className="label" htmlFor="password">
             Password
           </label>
           <input
@@ -101,15 +89,11 @@ export default function SignUpPage() {
             type="password"
             minLength={8}
             required
-            className="border-accent-subtle bg-background-elevated text-foreground w-full rounded-md border px-3 py-2 text-sm"
+            className="input"
           />
         </div>
 
-        <button
-          type="submit"
-          disabled={pending}
-          className="bg-foreground text-background rounded-md px-3 py-2 text-sm font-medium"
-        >
+        <button type="submit" disabled={pending} className="btn btn-solid btn-sm">
           Create account
         </button>
       </form>

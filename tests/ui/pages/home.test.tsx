@@ -10,10 +10,13 @@ describe("Milestone 2: Home page", () => {
     render(element);
 
     expect(screen.getByRole("heading", { name: "Latest posts" })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: "Posts" })).toBeInTheDocument();
 
-    // Fixture-driven expectations
-    expect(screen.getByRole("link", { name: "Hello World" })).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: "Shiki + rehype-pretty-code" })).toBeInTheDocument();
+    // Fixture-driven expectations - post titles are now headings inside links
+    expect(screen.getByRole("heading", { name: "Hello World" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Shiki + rehype-pretty-code" })).toBeInTheDocument();
+
+    // Links exist for each post
+    expect(screen.getByRole("link", { name: /Hello World/ })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: /Shiki \+ rehype-pretty-code/ })).toBeInTheDocument();
   });
 });
